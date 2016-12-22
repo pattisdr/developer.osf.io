@@ -56,6 +56,7 @@ SwaggerUi.Views.ParameterView = Backbone.View.extend({
     this.model.isBody = this.model.paramType === 'body' || this.model.in === 'body';
     this.model.isFile = type && type.toLowerCase() === 'file';
     this.model.default = (this.model.default || this.model.defaultValue);
+    this.model.isVersion = true ? this.model.name == 'version' : false;
 
     if(this.model.format === 'password') {
         this.model.inputType = 'password';

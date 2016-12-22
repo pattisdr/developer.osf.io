@@ -4,6 +4,7 @@
     "title": "OSF API Documentation",
     "version": ""
   },
+  "host": "localhost:8000",
   "paths": {
     "\/{version}\/": {
       "get": {

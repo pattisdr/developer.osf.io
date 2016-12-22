@@ -22,7 +22,12 @@
             {{#if default}}
                 <input class='parameter ui-form-control required' minlength='1' name='{{name}}' placeholder='(required)' type='{{inputType}}' value='{{default}}' data-toggle="tooltip" data-placement="right" title="" data-original-title='{{name}}'/>
             {{else}}
-                <input class='parameter ui-form-control required' minlength='1' name='{{name}}' placeholder='(required)' type='{{inputType}}' value='' data-toggle="tooltip" data-placement="right" title="" data-original-title='{{name}}'/>
+                {{#if isVersion}}
+                    <input class='parameter ui-form-control required' minlength='1' name='{{name}}' placeholder='(required)' type='{{inputType}}'
+                    value='v2' data-toggle="tooltip" data-placement="right" title="" data-original-title='{{name}}'/>
+                {{else}}
+                    <input class='parameter ui-form-control required' minlength='1' name='{{name}}' placeholder='(required)' type='{{inputType}}' value='' data-toggle="tooltip" data-placement="right" title="" data-original-title='{{name}}'/>
+                {{/if}}
             {{/if}}
         {{/if}}
     {{/if}}
