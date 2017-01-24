@@ -1,0 +1,261 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "OSF APIv2 Documentation",
+        "version": "2.0",
+        "description": "Welcome to the V2 Open Science Framework API. With this API you can access users, projects, components, registrations, preprints, logs, and files on the Open Science Framework.",
+        "contact": {
+            "name": "OSF",
+            "email": "support@osf.io",
+            "url": "https://osf.io/support"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:8000",
+    "basePath": "/v2",
+    "paths": {
+        "/preprints/": {
+            "get": {
+                "summary": "List of Preprints",
+                "description": "\nPreprints that represent a special kind of preprint node. *Writeable*.\n\n##Note\n**This API endpoint is under active development, and is subject to change in the future.**\n\nPaginated list of preprints ordered by their `date_created`.  Each resource contains a representation of the\npreprint.\n\n##Preprint Attributes\n\nMany of these preprint attributes are the same as node, with a few special fields added in.\n\nOSF Preprint entities have the \"preprint\" `type`.\n\nname                            type                  description\n====================================================================================\ntitle                           string                title of preprint, same as its project or component\nabstract                        string                description of the preprint\ndate_created                    iso8601 timestamp     timestamp that the preprint was created\ndate_modified                   iso8601 timestamp     timestamp when the preprint was last updated\ntags                            array of strings      list of tags that describe the node\nsubjects                        array of dictionaries list ids of Subject in the PLOS taxonomy. Dictrionary, containing the subject text and subject ID\ndoi                             string                bare DOI for the manuscript, as entered by the user\n\n##Relationships\n\n###Primary File\nThe file that is designated as the preprint's primary file, or the manuscript of the preprint.\n\n###Files\nLink to list of files associated with this node/preprint\n\n###Contributors\nLink to list of contributors that are affiliated with this preprint.\n\n###Provider\nLink to preprint_provider detail for this preprint\n\n##Links\n\n- `self` -- Preprint detail page for the current preprint\n- `html` -- Project on the OSF corresponding to the current preprint\n- `doi` -- URL representation of the DOI entered by the user for the preprint manuscript\n\nSee the [JSON-API spec regarding pagination](http://jsonapi.org/format/1.0/#fetching-pagination).\n\n##Query Params\n\n+ `page=<Int>` -- page number of results to view, default 1\n\n+ `filter[<fieldname>]=<Str>` -- fields and values to filter the search results on.\n\nPreprints may be filtered by their `id`, `title`, `public`, `tags`, `date_created`, `date_modified`, and `subjects`\nMost are string fields and will be filtered using simple substring matching.\n\n###Creating New Preprints\n\nCreate a new preprint by posting to the guid of the existing **node**, including the file_id for the\nfile you'd like to make the primary preprint file. Note that the **node id** will not be accessible via the\npreprints detail view until after the preprint has been created.",
+                "parameters": [
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "page[size]",
+                        "in": "query"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "sort",
+                        "in": "query"
+                    }
+                ],
+                "tags": [
+                    "preprints"
+                ],
+                "operationId": "preprints_list",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Preprint"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add a Preprint",
+                "description": "Add a Preprint",
+                "tags": [
+                    "preprints"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Preprint object to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Preprint"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Preprint successfully created"
+                    }
+                }
+            }
+        },
+        "/preprints/{node_id}/": {
+            "get": {
+                "summary": "Retrieve Preprint Details",
+                "description": "Preprint Detail  *Writeable*.\n\n##Note\n**This API endpoint is under active development, and is subject to change in the future.**\n\n##Preprint Attributes\n\nMany of these preprint attributes are the same as node, with a few special fields added in.\n\nOSF Preprint entities have the \"preprint\" `type`.\n\nname                            type                  description\n====================================================================================\ntitle                           string                title of preprint, same as its project or component\nabstract                        string                description of the preprint\ndate_created                    iso8601 timestamp     timestamp that the preprint was created\ndate_modified                   iso8601 timestamp     timestamp when the preprint was last updated\ntags                            array of strings      list of tags that describe the node\nsubjects                        array of dictionaries list ids of Subject in the PLOS taxonomy. Dictrionary, containing the subject text and subject ID\nprovider                        string                original source of the preprint\ndoi                             string                bare DOI for the manuscript, as entered by the user\n\n###Updating Preprints\n\nUpdate a preprint by sending a patch request to the guid of the existing preprint node that you'd like to update.",
+                "parameters": [
+                    {
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "name": "node_id",
+                        "in": "path"
+                    }
+                ],
+                "tags": [
+                    "preprints"
+                ],
+                "operationId": "preprints_read",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/preprints/{node_id}/preprint_providers/": {
+            "get": {
+                "description": "Detail of the preprint providers a preprint has, if any. Returns [] if the preprint has no\npreprnt providers.\n\n##Note\n**This API endpoint is under active development, and is subject to change in the future**\n\n##Attributes\n\nOSF Preprint Providers have the \"preprint_providers\" `type`.\n\nname           type               description\n=========================================================================\nname           string             name of the preprint provider\nlogo_path      string             a path to the preprint provider's static logo\nbanner_path    string             a path to the preprint provider's banner\ndescription    string             description of the preprint provider\n\n##Links",
+                "parameters": [
+                    {
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "name": "node_id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "page[size]",
+                        "in": "query"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "sort",
+                        "in": "query"
+                    }
+                ],
+                "tags": [
+                    "preprints"
+                ],
+                "summary": "Detail of the preprint providers a preprint has, if any. Returns [] if the preprint has no",
+                "operationId": "preprints_preprint_providers_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/preprints/{node_id}/relationships/preprint_providers/": {
+            "get": {
+                "description": "Relationship Endpoint for Preprint -> PreprintProvider\n\nUsed to set preprint_provider of a preprint to a PreprintProvider\n\n##Note\n**This API endpoint is under active development, and is subject to change in the future.**\n\n##Actions\n\n###Get",
+                "parameters": [
+                    {
+                        "description": "",
+                        "required": true,
+                        "type": "string",
+                        "name": "node_id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "page[size]",
+                        "in": "query"
+                    },
+                    {
+                        "description": "",
+                        "required": false,
+                        "type": "string",
+                        "name": "sort",
+                        "in": "query"
+                    }
+                ],
+                "tags": [
+                    "preprints"
+                ],
+                "summary": "Relationship Endpoint for Preprint -> PreprintProvider",
+                "operationId": "preprints_relationships_preprint_providers_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "PreprintProvider": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "Preprint": {
+            "type": "object",
+            "required": [
+                "provider"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "readOnly": true
+                },
+                "date_created": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true
+                },
+                "date_modified": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true
+                },
+                "date_published": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readOnly": true
+                },
+                "doi": {
+                    "type": "string"
+                },
+                "is_published": {
+                    "type": "boolean"
+                },
+                "is_preprint_orphan": {
+                    "type": "boolean",
+                    "readOnly": true
+                },
+                "provider": {
+                    "$ref": "#/definitions/PreprintProvider"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "basic": {
+            "type": "basic"
+        }
+    }
+}

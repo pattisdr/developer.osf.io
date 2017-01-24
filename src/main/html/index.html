@@ -48,7 +48,7 @@
             if (url && url.length > 1) {
                 url = decodeURIComponent(url[1]);
             } else {
-                url = window.location.toString().replace(/\/*#?.*/, 'swagger.json');
+                url = window.location.toString().replace(/\/*#?.*/, 'test-swagger.json');
             }
 
             window.swaggerUi = new SwaggerUi({
