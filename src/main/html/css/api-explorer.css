@@ -1,3 +1,10 @@
+.osf-logo {
+    margin: 20px 20px 20px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .swagger-section pre code {
     display: block;
     padding: .5em
@@ -1369,10 +1376,14 @@
     border: 1px solid #dddde2;
     border-radius: 3px;
     padding: 15px;
-    margin: 20px 20px 40px;
+    margin: 20px 20px 20px;
     line-height: 1.4;
     background: #ebebee;
     font-size: 13px
+}
+
+.changes-disclaimer p {
+    margin: 0px;
 }
 
 @media (min-width: 992px) {

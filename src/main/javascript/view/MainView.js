@@ -170,43 +170,6 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     $('#resources').append(resourceView.render().el);
   },
 
-  addSidebarToken: function (resource, i) {
-    resource.id = resource.id.replace(/\s/g, '_');
-    var sidebarView = new SwaggerUi.Views.SidebarHeaderView({
-      model: resource,
-      tagName: 'div',
-      className: function () {
-        return i == 0 ? 'active' : ''
-      },
-      attributes: {
-        "data-resource": 'resource_' + resource.name,
-        "label": resource.name
-      },
-      router: this.router,
-      swaggerOptions: this.options.swaggerOptions
-    });
-    $('#token-generator', $(this.el)).append(sidebarView.render().el);
-  },
-
-
-  addSidebarHeader: function (resource, i) {
-    resource.id = resource.id.replace(/\s/g, '_');
-    var sidebarView = new SwaggerUi.Views.SidebarHeaderView({
-      model: resource,
-      tagName: 'div',
-      className: function () {
-        return i == 0 ? 'active' : ''
-      },
-      attributes: {
-        "data-resource": 'resource_' + resource.name,
-        "label": resource.name
-      },
-      router: this.router,
-      swaggerOptions: this.options.swaggerOptions
-    });
-    $('#resources_nav', $(this.el)).append(sidebarView.render().el);
-  },
-
   clear: function () {
     $(this.el).html('');
   },
