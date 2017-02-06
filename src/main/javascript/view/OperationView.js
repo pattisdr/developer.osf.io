@@ -12,12 +12,20 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   initialize: function (opts) {
+    var api_topics = [
+      "Introduction", "General API Usage", "Versioning",
+      "Filtering and Embedding", "Pagination",
+      "PUT/PATCH Requests", "Attribute Validation", "Entities",
+      "Entity Collections", "Errors", "OSF Enum Fields"
+    ];
+
     opts = opts || {};
     this.router = opts.router;
     this.auths = opts.auths;
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
     this.model.encodedParentId = encodeURIComponent(this.parentId);
+    this.model.endpoint = api_topics.indexOf(this.model.summary) == -1 ? true : false;
     return this;
   },
 
