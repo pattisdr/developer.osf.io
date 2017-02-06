@@ -44,12 +44,12 @@
 
     <script type="text/javascript">
         $(function () {
-            var url = window.location.search.match(/url=([^&]+)/);
-            if (url && url.length > 1) {
-                url = decodeURIComponent(url[1]);
-            } else {
-                url = window.location.toString().replace(/\/*#?.*/, 'test-swagger.json');
-            }
+            // var url = window.location.search.match(/url=([^&]+)/);
+            // if (url && url.length > 1) {
+            //     url = decodeURIComponent(url[1]);
+            // } else {
+            var url = window.location.toString().replace(/\/*#?.*/, 'swagger.yaml');
+            // }
 
             window.swaggerUi = new SwaggerUi({
                 url: url,
@@ -79,7 +79,7 @@
 
                     $("[data-toggle='tooltip']").tooltip();
 
-                    addApiKeyAuthorization();
+                    // addApiKeyAuthorization();
                 },
                 onFailure: function (data) {
                     log("Unable to Load SwaggerUI");
@@ -88,16 +88,16 @@
                 sorter: "alpha"
             });
 
-            function addApiKeyAuthorization() {
-                var key = encodeURIComponent($('#input_apiKey')[0].value);
-                if (key && key.trim() != "") {
-                    var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "Bearer " + key, "header");
-                    window.swaggerUi.api.clientAuthorizations.add("key", apiKeyAuth);
-                    log("added key " + key);
-                }
-            }
+            // function addApiKeyAuthorization() {
+            //     var key = encodeURIComponent($('#input_apiKey')[0].value);
+            //     if (key && key.trim() != "") {
+            //         var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "Bearer " + key, "header");
+            //         window.swaggerUi.api.clientAuthorizations.add("key", apiKeyAuth);
+            //         log("added key " + key);
+            //     }
+            // }
 
-            $('#input_apiKey').change(addApiKeyAuthorization);
+            // $('#input_apiKey').change(addApiKeyAuthorization);
             // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
             /*
              var apiKey = "myApiKeyXXXX123456789";
