@@ -1,0 +1,89 @@
+# Preprint Model Definition
+type: object
+title: Preprint
+required:
+  - node
+  - primary_file
+  - provider
+properties:
+  id:
+    description: ''
+    readOnly: true
+    type: string
+  subjects:
+    description: ''
+    readOnly: false
+    type: array
+    items:
+      type: string
+  date_created:
+    description: ''
+    format: date-time
+    readOnly: true
+    type: string
+  date_modified:
+    description: ''
+    format: date-time
+    readOnly: true
+    type: string
+  date_published:
+    description: ''
+    format: date-time
+    readOnly: true
+    type: string
+  doi:
+    description: ''
+    readOnly: false
+    type: string
+  is_published:
+    description: ''
+    readOnly: false
+    type: boolean
+  is_preprint_orphan:
+    description: ''
+    readOnly: true
+    type: boolean
+  license_record:
+    description: ''
+    readOnly: false
+    type: string
+  citation:
+    description: ''
+    readOnly: true
+    type: string
+  node:
+    description: ''
+    readOnly: false
+    type: string
+  license:
+    description: ''
+    readOnly: false
+    type: string
+  provider:
+    description: ''
+    readOnly: false
+    type: string
+  primary_file:
+    description: ''
+    readOnly: false
+    type: string
+  links:
+    description: ''
+    readOnly: true
+    type: string
+example:
+  data:
+    attributes: {}
+    relationships:
+      node:
+        data:
+          type: nodes
+          id: 6c2gz
+      primary_file:
+        data:
+          type: primary_files
+          id: 587e5fa293b2ad00568caf70
+      provider:
+        data:
+          type: providers
+          id: osf

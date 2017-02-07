@@ -107,6 +107,13 @@ gulp.task('copy', ['less'], function() {
     .src(['./src/main/html/**/*'])
     .pipe(gulp.dest('./dist'))
     .on('error', log);
+
+  // copy all files inside swagger-spec folder
+  gulp
+    .src(['./swagger-spec/**/*'])
+    .pipe(gulp.dest('./dist/swagger-spec/'))
+    .on('error', log);
+
 });
 
 /**
