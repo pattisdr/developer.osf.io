@@ -21,310 +21,39 @@ paths:
   #   INTRODUCTION   #
   ####################
 
+  # These are fake enpoints used for sidebar documentation
   /introduction/:
-    get:
-      description: >-
-        Welcome to the Open Science Framework API. With this API you can access
-        users, projects, components, logs, and files from the [Open Science
-        Framework](https://osf.io/). The Open Science Framework (OSF) is a free,
-        open-source service maintained by the [Center for Open
-        Science](http://cos.io/).
+    $ref: '/swagger-spec/introduction/introduction.yaml'
 
-
-        The OSF serves as a repository and archive for study designs, materials,
-        data, manuscripts, or anything else associated with your research during
-        the research process. Every project and file on the OSF has a permanent
-        unique identifier, and every registration (a permanent, time-stamped
-        version of your projects and files) can be assigned a DOI/ARK. You can
-        use the OSF to measure your impact by monitoring the traffic to projects
-        and files you make public. With the OSF you have full control of what
-        parts of your research are public and what remains private.
-
-
-        Beta notice: This API is currently a beta service.  You are encouraged
-        to use the API and will receive support
-
-        when doing so, however, while the API remains in beta status, it may
-        change without notice as a result of product updates. The temporary beta
-        status of the API will remain in place while it matures. In a future
-        release, the beta status will be removed, at which point we will provide
-        details on how long we will support the API V2 and under what
-        circumstances it might change.
-      summary: Introduction
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: introduction
   /general_api_usage/:
-    get:
-      description: >-
-        The OSF API generally conforms to the [JSON-API v1.0
-        spec](http://jsonapi.org/format/1.0/).  Where exceptions exist, they
-        will be noted.  Each endpoint will have its own documentation, but there
-        are some general principles.
+    $ref: '/swagger-spec/introduction/general_api_usage.yaml'
 
-
-        Assume undocumented routes/features/fields are unstable.
-
-
-        #Canonical URLs
-
-        All canonical URLs have trailing slashes.  A request to an endpoint
-        without a trailing slash will result in a 301 redirect to the canonical
-        URL.  There are some exceptions when working with the Files API, so if a
-        URL in a response does not have a slash, do not append one.
-
-        #Plurals
-
-        Endpoints are always pluralized.  `/users/`, not `/user/`, `/nodes/`,
-        not `/node/`.
-
-
-        The only exception is the citation endpoint, which is `/citation/`, not
-        `/citations/`.
-
-        #Common Actions
-
-        Every endpoint in the OSF API responds to `GET`, `HEAD`, and `OPTION`
-        requests.  You must have adequate permissions to interact with the
-        endpoint.  Unauthorized use will result in 401 Unauthorized or 403
-        Forbidden responses.  Use `HEAD` to probe an endpoint and make sure your
-        headers are well-formed.  `GET` will return a representation of the
-        entity or entity collection referenced by the endpoint.  An `OPTIONS`
-        request will return a JSON object that describes the endpoint, including
-        the name, a description, the acceptable request formats, the allowed
-        response formats, and any actions available via the endpoint.
-      summary: General API Usage
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: general_api_usage
   /versioning/:
-    get:
-      description: >-
-        Versioning can be specified in three different ways:
+    $ref: '/swagger-spec/introduction/versioning.yaml'
 
-
-        URL Path Versioning, e.g. `/v2/` or `/v3/`
-
-        - A version specified via the URL path is a **required** part of the
-        URL.
-
-        - Only a major version can be specified via the URL path, i.e.
-        `/v2.0.6/` is invalid, additionally, paths such as `/v2.0/` are invalid.
-
-        - If the default version of the API is within the major version
-        specified in the URL path, the default version will be applied (i.e. if
-        the default version is `2.3` and the URL path is `/v2/`, then version
-        returned will be `2.3`).
-
-        - If the default version of the API is not within the major version
-        specified in the URL path, the URL path version will be applied (i.e. if
-        the default version is `3.0` and the URL path is `/v2/`, then the
-        version returned will be `2.0`)
-
-
-        Query Parameter Versioning, e.g. `/v2/nodes/?version=2.1.6`
-
-        + Pinning to a specific version via a query parameter is **optional**.
-
-        + A specific version (major, minor, or patch) for a single request can
-        be specified via the `version` query parameter, as long as it is an
-        allowed version.
-
-        + If the version specified in the query parameter does not fall within
-        the same major version specified in the URL path, i.e
-        `/v2/nodes/?version=3.1.4` a 409 Conflict response will be returned.
-
-
-        Header Versioning, e.g.
-        `Accept-Header=application/vnd.api+json;version=3.0.1`
-
-        + Pinning to a specific version via request header is **optional**.
-
-        + A specific version (major, minor, or patch) for a single request can
-        be specified via the `Accept Header` of the request, as long as it is an
-        allowed version.
-
-        + If the version specified in the header does not fall within the same
-        major version specified in the URL path a 409 Conflict response will be
-        returned.
-
-        + If both a header version and query parameter version are specified,
-        the versions must match exactly or a 409 Conflict response will be
-        returned (i.e. one does not take precedence over the other).
-      summary: Versioning
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: versioning
   /filtering_and_embedding/:
-    get:
-      description: >-
-        #Filtering
+    $ref: '/swagger-spec/introduction/filtering_and_embedding.yaml'
 
-        Entity collections can be filtered by adding a query parameter in the
-        form:
-
-
-        ```filter[<fieldname>]=<matching information>```
-
-
-        String queries are filtered using substring matching. For example, if
-        you were trying to find [Lise
-        Meitner](http://en.wikipedia.org/wiki/Lise_Meitner):
-
-
-        ```/users/?filter[full_name]=meitn```
-
-
-        You can filter on multiple fields, or the same field in different ways,
-        by &-ing the query parameters together.
-
-
-        ```/users/?filter[full_name]=lise&filter[family_name]=mei```
-
-
-        Boolean fields should be queried with `true` or `false`.
-
-
-        ```/nodes/?filter[registered]=true```
-
-
-        You can request multiple resources by filtering on id and placing
-        comma-separated values in your query parameter.
-
-
-        ```/nodes/?filter[id]=aegu6,me23a```
-
-
-        You can filter with case-sensitivity or case-insensitivity by using
-        `contains` and `icontains`, respectively.
-
-
-        ```/nodes/?filter[tags][icontains]=help```
-
-
-        #Embedding
-            All related resources that appear in the `relationships` attribute are embeddable, meaning that by adding a query parameter like:
-
-        /nodes/?embed=contributors
-
-
-        it is possible to fetch a Node and its contributors in a single request.
-        The embedded results will have the following structure:
-
-
-        {relationship_name}: {full_embedded_response}
-
-
-        Where `full_embedded_response` means the full API response resulting
-        from a GET request to the `href` link of the corresponding related
-        resource. This means if there are no errors in processing the embedded
-        request the response will have the format:
-
-
-        data: {response}
-
-
-        And if there are errors processing the embedded request the response
-        will have the format:
-
-
-        errors: {errors}
-
-
-        Multiple embeds can be achieved with multiple query parameters separated
-        by "&".
-
-
-        /nodes/?embed=contributors&embed=comments
-
-
-        Some endpoints are automatically embedded.
-      summary: Filtering and Embedding
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: filtering_and_embedding
   /pagination/:
-    get:
-      description: ''
-      summary: Pagination
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: pagination
+    $ref: '/swagger-spec/introduction/pagination.yaml'
+
   /put_patch_requests/:
-    get:
-      description: ''
-      summary: PUT/PATCH Requests
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: put_patch_requests
+    $ref: '/swagger-spec/introduction/put_patch_requests.yaml'
+
   /attribute_validation/:
-    get:
-      description: ''
-      summary: Attribute Validation
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: attribute_validation
+    $ref: '/swagger-spec/introduction/attribute_validation.yaml'
+
   /entities/:
-    get:
-      description: ''
-      summary: Entities
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: entities
+    $ref: '/swagger-spec/introduction/entities.yaml'
+
   /entity_collections/:
-    get:
-      description: ''
-      summary: Entity Collections
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: entity_collections
+    $ref: '/swagger-spec/introduction/entity_collections.yaml'
+
   /errors/:
-    get:
-      description: ''
-      summary: Errors
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: errors
+    $ref: '/swagger-spec/introduction/errors.yaml'
+
   /osf_enum_fields/:
-    get:
-      description: ''
-      summary: OSF Enum Fields
-      responses:
-        '200':
-          description: OK
-      tags:
-        - Introduction
-      operationId: osf_enum_fields
+    $ref: '/swagger-spec/introduction/osf_enum_fields.yaml'
 
 ############
 #   BASE   #

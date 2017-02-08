@@ -689,26 +689,26 @@ this["Handlebars"]["templates"]["signature"] = Handlebars.template({"1":function
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "    <h4 class=\"schema-title collapsed\" data-control data-toggle=\"collapse\"\n        data-target=\"#schema-"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\">"
-    + escapeExpression(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"type","hash":{},"data":data}) : helper)))
-    + " Schema</h4>\n    <div data-content class=\"collapse\" id=\"schema-"
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + " Object</h4>\n    <div data-content class=\"collapse\" id=\"schema-"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n        <div class=\"description\">\n            ";
   stack1 = ((helper = (helper = helpers.signature || (depth0 != null ? depth0.signature : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"signature","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n        </div>\n    </div>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<h4 class=\"sample-title\" data-control data-toggle=\"collapse\"\n    data-target=\"#sample-"
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "";
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.signature : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "\n<h4 class=\"sample-title collapsed\" data-control data-toggle=\"collapse\"\n    data-target=\"#sample-"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
-    + "\">"
+    + "\">Example "
     + escapeExpression(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"type","hash":{},"data":data}) : helper)))
-    + " Sample</h4>\n<div data-content class=\"collapse in\" id=\"sample-"
+    + "</h4>\n<div data-content class=\"collapse\" id=\"sample-"
     + escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n    <div class=\"snippet\">\n        <pre><code>"
     + escapeExpression(((helper = (helper = helpers.sampleJSON || (depth0 != null ? depth0.sampleJSON : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"sampleJSON","hash":{},"data":data}) : helper)))
-    + "</code></pre>\n    </div>\n</div>\n\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.signature : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
-  if (stack1 != null) { buffer += stack1; }
-  return buffer;
+    + "</code></pre>\n    </div>\n</div>\n";
 },"useData":true});
 this["Handlebars"]["templates"]["status_code"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<td style=\"width: 20px;\"><strong>"
@@ -20024,6 +20024,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.auths = opts.auths;
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
+    this.name = this.model.parentId.replace(/s$/, '');
     this.model.encodedParentId = encodeURIComponent(this.parentId);
     this.model.endpoint = api_topics.indexOf(this.model.summary) == -1 ? true : false;
     return this;
@@ -20161,7 +20162,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
             isParam: false,
             signature: value.getMockSignature(),
             type: "Response",
-            id: this.parentId + '_' + this.nickname + '_succes'
+            id: this.parentId + '_' + this.nickname + '_succes',
+            name: this.name
           };
         }
       }
@@ -20171,7 +20173,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         isParam: false,
         signature: this.model.responseClassSignature,
         type: "Response",
-        id: this.parentId + '_' + this.nickname
+        id: this.parentId + '_' + this.nickname,
+        name: this.name
       };
     }
 
@@ -20197,7 +20200,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         router: this.router,
         tagName: 'div',
         type: "Response",
-        id: this.parentId + '_' + this.nickname + '_response'
+        id: this.parentId + '_' + this.nickname + '_response',
+        name: this.name
       });
       $('.model-signature', $(this.el)).append(responseSignatureView.render().el);
     } else {
@@ -20251,7 +20255,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       isParam: true,
       signature: param.signature,
       type: "Body",
-      id: this.parentId + '_' + this.nickname + '_body'
+      id: this.parentId + '_' + this.nickname + '_body',
+      name: this.name
     };
     var signatureView = new SwaggerUi.Views.SignatureView({model: bodySample, tagName: 'div'});
     $('.model-signature', $(this.el)).append(signatureView.render().el);

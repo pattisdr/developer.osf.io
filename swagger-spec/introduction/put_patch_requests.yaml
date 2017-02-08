@@ -1,0 +1,58 @@
+get:
+  description: >-
+    #Formatting POST/PUT/PATCH request bodies
+
+    The OSF API follows the JSON-API spec for [create and update requests](http://jsonapi.org/format/1.0/#crud).  This means
+    all request bodies must be wrapped with some metadata.  Each request body must be an object with a `data` key
+    containing at least a `type` member.  The value of the `type` member must agree with the `type` of the entities
+    represented by the endpoint.  If not, a 409 Conflict will be returned.  The request should also contain an
+    `attributes` member with an object containing the key-value pairs to be created/updated.  PUT/PATCH requests must
+    also have an `id` key that matches the id part of the endpoint.  If the `id` key does not match the id path part, a
+    409 Conflict error will be returned.
+
+    #Example 1: Creating a Node via POST
+
+        POST /v2/nodes/
+        {
+          "data": {
+            "type": "nodes",
+            "attributes": {
+              "title" : "A Phylogenetic Tree of Famous Internet Cats",
+              "category" : "project",
+              "description" : "How closely related are Grumpy Cat and C.H. Cheezburger? Is memefulness inheritable?"
+            }
+          }
+        }
+
+    #Example 2: Updating a User via PUT
+
+        PUT /v2/users/me/
+        {
+          "data": {
+            "id": "3rqxc",
+            "type": "users",
+            "attributes": {
+              "full_name" : "Henrietta Swan Leavitt",
+              "given_name" : "Henrietta",
+              "middle_names" : "Swan",
+              "family_name" : "Leavitt"
+            }
+          }
+        }
+
+    **NB:** If you PUT/PATCH to the `/users/me/` endpoint, you must still provide your full user id in the `id` field of
+    the request.  We do not support using the `me` alias in request bodies at this time.
+
+    #PUT vs. PATCH
+
+    For most endpoints that support updates via PUT requests, we also allow PATCH updates. The only difference is that
+    PUT requests require all mandatory attributes to be set, even if their value is unchanged. PATCH requests may omit
+    mandatory attributes, whose value will be unchanged.
+
+  summary: PUT/PATCH Requests
+  responses:
+    '200':
+      description: OK
+  tags:
+    - Introduction
+  operationId: put_patch_requests

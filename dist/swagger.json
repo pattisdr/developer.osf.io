@@ -304,7 +304,7 @@
 				"consumes": ["application/json"],
 				"responses": {
 					"201": {
-						"description": ""
+						"description": "",
 					}
 				}
 			}
