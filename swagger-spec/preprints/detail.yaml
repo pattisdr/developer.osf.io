@@ -1,6 +1,12 @@
     get:
       summary: Retrieve a preprint
       description: >-
+        Retrieves the details of a preprint.
+
+        TODO: Required Arguments
+        TODO: Returns
+
+
         Preprint Detail  *Writeable*.
 
 
