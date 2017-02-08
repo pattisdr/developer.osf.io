@@ -24,6 +24,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.auths = opts.auths;
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
+    this.name = this.model.parentId.replace(/s$/, '');
     this.model.encodedParentId = encodeURIComponent(this.parentId);
     this.model.endpoint = api_topics.indexOf(this.model.summary) == -1 ? true : false;
     return this;
@@ -161,7 +162,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
             isParam: false,
             signature: value.getMockSignature(),
             type: "Response",
-            id: this.parentId + '_' + this.nickname + '_succes'
+            id: this.parentId + '_' + this.nickname + '_succes',
+            name: this.name
           };
         }
       }
@@ -171,7 +173,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         isParam: false,
         signature: this.model.responseClassSignature,
         type: "Response",
-        id: this.parentId + '_' + this.nickname
+        id: this.parentId + '_' + this.nickname,
+        name: this.name
       };
     }
 
@@ -197,7 +200,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         router: this.router,
         tagName: 'div',
         type: "Response",
-        id: this.parentId + '_' + this.nickname + '_response'
+        id: this.parentId + '_' + this.nickname + '_response',
+        name: this.name
       });
       $('.model-signature', $(this.el)).append(responseSignatureView.render().el);
     } else {
@@ -251,7 +255,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       isParam: true,
       signature: param.signature,
       type: "Body",
-      id: this.parentId + '_' + this.nickname + '_body'
+      id: this.parentId + '_' + this.nickname + '_body',
+      name: this.name
     };
     var signatureView = new SwaggerUi.Views.SignatureView({model: bodySample, tagName: 'div'});
     $('.model-signature', $(this.el)).append(signatureView.render().el);
