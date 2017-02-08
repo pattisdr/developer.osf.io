@@ -7,69 +7,64 @@ required:
   - provider
 properties:
   id:
-    description: ''
+    description: 'The ID of the preprint.'
     readOnly: true
     type: string
   subjects:
-    description: ''
+    description: 'A list of lists of dictionaries that describe subjects related to the preprint, in the PLOS taxonomy[link me pls]. Each dictionary contains the text and ID of a subject.'
     readOnly: false
-    type: array
-    items:
-      type: string
+    # TODO: this is not at all correct, it's a list of lists of dictionaries
+    type: strings
   date_created:
-    description: ''
+    description: 'The time at which the preprint was created, as an iso8601 formatted timestamp.'
     format: date-time
     readOnly: true
     type: string
   date_modified:
-    description: ''
+    description: 'The time at which the preprint was last modified, as an iso8601 formatted timestamp.'
     format: date-time
     readOnly: true
     type: string
   date_published:
-    description: ''
+    description: 'The time at which the preprint was published, as an iso8601 formatted timestamp.'
     format: date-time
     readOnly: true
     type: string
   doi:
-    description: ''
+    description: 'The [DOI](https://www.doi.org/) for the manuscript of the preprint, as entered by the user.'
     readOnly: false
     type: string
   is_published:
-    description: ''
+    description: 'Whether or not the preprint is published. TODO: describe if this action is reversible or not, explain how it relates to public/private.'
     readOnly: false
     type: boolean
   is_preprint_orphan:
-    description: ''
+    description: 'Whether or not the preprint is orphaned. TODO: explain what orphaned means in this context.'
     readOnly: true
     type: boolean
   license_record:
-    description: ''
+    description: 'The metadata (copyright year and holder) associated with a license, required for certain licenses.'
     readOnly: false
     type: string
   citation:
-    description: ''
+    description: 'A relationship to the citation of the preprint.'
     readOnly: true
     type: string
   node:
-    description: ''
+    description: 'A relationship to the node that was created for the preprint, or from which the preprint was created.'
     readOnly: false
     type: string
   license:
-    description: ''
+    description: 'A relationship to the license that has been applied to the preprint. TODO: note here what license preprints default to.'
     readOnly: false
     type: string
   provider:
-    description: ''
+    description: 'A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.)'
     readOnly: false
     type: string
   primary_file:
-    description: ''
+    description: 'A relationship to the file that is designated as the preprint''s primary file, or the manuscript of the preprint.'
     readOnly: false
-    type: string
-  links:
-    description: ''
-    readOnly: true
     type: string
 example:
   data:

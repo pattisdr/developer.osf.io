@@ -16,6 +16,11 @@ info:
 host: 'localhost:8000'
 basePath: /v2
 paths:
+
+  ####################
+  #   INTRODUCTION   #
+  ####################
+
   /introduction/:
     get:
       description: >-
@@ -320,6 +325,11 @@ paths:
       tags:
         - Introduction
       operationId: osf_enum_fields
+
+############
+#   BASE   #
+############
+
   /:
     get:
       description: ''
@@ -330,14 +340,25 @@ paths:
       tags:
         - Base
       operationId: base_read
+
+#################
+#   PREPRINTS   #
+#################
+
   /preprints/:
-    get:
-      $ref: swagger-spec/preprints/list.yaml
-    post:
-      $ref: swagger-spec/preprints/create.yaml
+    $ref: '/swagger-spec/preprints/list.yaml'
+
+  /preprints/{preprint_id}/:
+    $ref: '/swagger-spec/preprints/detail.yaml'
+
+#########################
+#   MODEL DEFINITIONS   #
+#########################
+
 definitions:
   Preprint:
-    $ref: swagger-spec/preprints/defintion.yaml
+    $ref: '/swagger-spec/preprints/definition.yaml'
+
 securityDefinitions:
   basic:
     type: basic
