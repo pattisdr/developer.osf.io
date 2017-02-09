@@ -11,4 +11,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: pagination

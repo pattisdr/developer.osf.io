@@ -42,4 +42,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: general_api_usage

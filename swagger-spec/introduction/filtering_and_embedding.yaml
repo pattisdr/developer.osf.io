@@ -87,4 +87,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: filtering_and_embedding

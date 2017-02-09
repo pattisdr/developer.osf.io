@@ -48,4 +48,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: osf_enum_fields

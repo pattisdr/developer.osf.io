@@ -32,4 +32,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: introduction

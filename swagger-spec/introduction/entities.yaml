@@ -54,4 +54,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: entities

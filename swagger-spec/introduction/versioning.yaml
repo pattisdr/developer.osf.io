@@ -57,4 +57,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: versioning

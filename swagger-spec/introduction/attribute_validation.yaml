@@ -15,4 +15,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: attribute_validation

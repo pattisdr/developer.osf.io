@@ -55,4 +55,3 @@ get:
       description: OK
   tags:
     - Introduction
-  operationId: put_patch_requests
