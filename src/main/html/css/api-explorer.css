@@ -572,7 +572,9 @@
 
 .swagger-section pre code {
     color: #fff;
-    background: none !important
+    background: none !important;
+    border: none;
+
 }
 
 @media (min-width: 992px) {
