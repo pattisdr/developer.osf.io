@@ -23,37 +23,37 @@ paths:
 
   # These are fake enpoints used for sidebar documentation
   /introduction/:
-    $ref: '/swagger-spec/introduction/introduction.yaml'
+    $ref: 'introduction/introduction.yaml'
 
   /general_api_usage/:
-    $ref: '/swagger-spec/introduction/general_api_usage.yaml'
+    $ref: 'introduction/general_api_usage.yaml'
 
   /versioning/:
-    $ref: '/swagger-spec/introduction/versioning.yaml'
+    $ref: 'introduction/versioning.yaml'
 
   /filtering_and_embedding/:
-    $ref: '/swagger-spec/introduction/filtering_and_embedding.yaml'
+    $ref: 'introduction/filtering_and_embedding.yaml'
 
   /pagination/:
-    $ref: '/swagger-spec/introduction/pagination.yaml'
+    $ref: 'introduction/pagination.yaml'
 
   /put_patch_requests/:
-    $ref: '/swagger-spec/introduction/put_patch_requests.yaml'
+    $ref: 'introduction/put_patch_requests.yaml'
 
   /attribute_validation/:
-    $ref: '/swagger-spec/introduction/attribute_validation.yaml'
+    $ref: 'introduction/attribute_validation.yaml'
 
   /entities/:
-    $ref: '/swagger-spec/introduction/entities.yaml'
+    $ref: 'introduction/entities.yaml'
 
   /entity_collections/:
-    $ref: '/swagger-spec/introduction/entity_collections.yaml'
+    $ref: 'introduction/entity_collections.yaml'
 
   /errors/:
-    $ref: '/swagger-spec/introduction/errors.yaml'
+    $ref: 'introduction/errors.yaml'
 
   /osf_enum_fields/:
-    $ref: '/swagger-spec/introduction/osf_enum_fields.yaml'
+    $ref: 'introduction/osf_enum_fields.yaml'
 
 ############
 #   BASE   #
@@ -75,10 +75,10 @@ paths:
 #################
 
   /preprints/:
-    $ref: '/swagger-spec/preprints/list.yaml'
+    $ref: 'preprints/list.yaml'
 
   /preprints/{preprint_id}/:
-    $ref: '/swagger-spec/preprints/detail.yaml'
+    $ref: 'preprints/detail.yaml'
 
 #########################
 #   MODEL DEFINITIONS   #
@@ -86,7 +86,7 @@ paths:
 
 definitions:
   Preprint:
-    $ref: '/swagger-spec/preprints/definition.yaml'
+    $ref: 'preprints/definition.yaml'
 
 securityDefinitions:
   basic:

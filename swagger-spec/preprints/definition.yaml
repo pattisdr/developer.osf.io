@@ -14,7 +14,7 @@ properties:
     description: 'A list of lists of dictionaries that describe subjects related to the preprint, in the PLOS taxonomy[link me pls]. Each dictionary contains the text and ID of a subject.'
     readOnly: false
     # TODO: this is not at all correct, it's a list of lists of dictionaries
-    type: strings
+    type: string
   date_created:
     description: 'The time at which the preprint was created, as an iso8601 formatted timestamp.'
     format: date-time
@@ -73,12 +73,12 @@ example:
       node:
         data:
           type: nodes
-          id: 6c2gz
+          id: '{node_id}'
       primary_file:
         data:
           type: primary_files
-          id: 587e5fa293b2ad00568caf70
+          id: '{primary_file_id}'
       provider:
         data:
           type: providers
-          id: osf
+          id: '{preprint_provider_id}'
