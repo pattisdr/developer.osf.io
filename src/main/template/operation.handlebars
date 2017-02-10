@@ -34,22 +34,23 @@
 
             <form accept-charset="UTF-8" class="sandbox">
 
-                {{#if parameters}}
-                    <h4 data-control data-parm-toggle data-toggle="collapse"
-                        data-target="#parm-{{parentId}}_{{nickname}}">
-                        Parameters
-                    </h4>
-                    <div data-content class="operation-params collapse in" id="parm-{{parentId}}_{{nickname}}"/>
-                {{/if}}
-
                 {{#if endpoint}}
+
+                    {{#if parameters}}
+                        <h4 data-control data-parm-toggle data-toggle="collapse"
+                            data-target="#parm-{{parentId}}_{{nickname}}">
+                            Parameters
+                        </h4>
+                        <div data-content class="operation-params collapse in" id="parm-{{parentId}}_{{nickname}}"/>
+                    {{/if}}
+
                     <h4 data-control data-toggle="collapse" data-target="#test-{{parentId}}_{{nickname}}">
                         Test this endpoint
                     </h4>
 
                     <div id="test-{{parentId}}_{{nickname}}">
                         <div class="sandbox_header collapse in" data-content>
-                            <input class="submit btn btn-primary" name="commit" type="submit" value="Try"
+                            <input class="submit btn btn-primary" name="commit" type="submit" value="try"
                                    data-target="#get_clients-modal-request">
                             <a href="#" class="response_hider hide" style="display: inline;">Hide Response</a>
                             <!--small class="curl-copy-message hide" style="display:none;">Copied to clipboard</small-->
