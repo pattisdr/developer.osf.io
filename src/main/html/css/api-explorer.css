@@ -5,6 +5,11 @@
     font-weight: bold;
 }
 
+.osf-logo img {
+    vertical-align: middle;
+    padding-bottom: 4px;
+}
+
 .swagger-section p {
     margin: 10px 0;
 }
@@ -1104,11 +1109,11 @@
     }
 }
 
-@media (min-width: 1400px) {
+/*@media (min-width: 1400px) {
     .swagger-section .sticky-nav.fixed {
         width: 320px
     }
-}
+}*/
 
 .swagger-section .sticky-nav [data-navigator] {
     transition: height 300ms ease;
@@ -1490,11 +1495,11 @@ body {
     }
 }
 
-@media (min-width: 1400px) {
+/*@media (min-width: 1400px) {
     .swagger-section #swagger_sidebar {
         width: 320px
     }
-}
+}*/
 
 @media (min-width: 992px) {
     .swagger-section #resources_container {
@@ -1503,11 +1508,11 @@ body {
     }
 }
 
-@media (min-width: 1400px) {
+/*@media (min-width: 1400px) {
     .swagger-section #resources_container {
         padding-left: 320px
     }
-}
+}*/
 
 .swagger-section .implementation-notes {
     padding: 0 20px
