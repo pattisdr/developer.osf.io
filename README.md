@@ -4,7 +4,8 @@ The openapi specification and source code for the documenting the Open Science F
 #### For development:
 - `npm install`
 - `npm run build` (to build a new distribution under the dist/ folder)
-- `npm run serve` (to serve the built result at localhost:8080)
+- `npm run serve` (to serve the built result at localhost:8090)
+*note*: to change the port, update the `connect` gulp task in `gulpfile.js`
 
 #### Spec Validation
 - `npm install -g swagger-cli`
