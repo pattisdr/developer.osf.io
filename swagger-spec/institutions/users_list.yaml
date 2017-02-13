@@ -1,1 +1,78 @@
 # /institutions/{institution_id}/users/
+get:
+  summary: Retrieve affiliated users
+  description: >-
+    A paginated list of all users affiliated with an institution.
+
+    #### Returns
+
+    JSON with keys for `data` and `links`.
+
+
+    The `data` key contains an array of 10 users.
+    Each resource in the array is a separate users object.
+    The `links` property contains JSON of links that can be used
+    for [pagination](http://jsonapi.org/format/1.0/#fetching-pagination).
+
+
+    If the request is unsuccessful, a dictionary with an `errors` property containing
+    information about the failure will be returned. Refer to the [list of error codes]()
+    to understand why this request may have failed.
+
+    #### Filtering
+
+    You can optionally request that the response only include institutions that
+    match your filters by utilizing the `filter` query parameter, e.g.
+    https://api.osf.io/v2/institutions/?filter[id]=cos.
+
+
+    Users may be filtered by their `id`, `full_name`, `given_name`, `middle_names`, and `family_name`
+  parameters:
+    - in: path
+      type: string
+      required: true
+      name: institution_id
+      description: 'The unique identifier of the institution you wish to retrieve.'
+  tags:
+    - Institutions
+  operationId: institutions_users_list
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: /swagger-spec/users/definition.yaml
+      examples:
+        application/json:
+          data:
+            - relationships:
+                nodes:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/users/cdi38/nodes/
+                      meta: {}
+                institutions:
+                  links:
+                    self:
+                      href: https://api.osf.io/v2/users/cdi38/relationships/institutions/
+                      meta: {}
+                    related:
+                      href: https://api.osf.io/v2/users/cdi38/institutions/
+                      meta: {}
+              links:
+                self: https://api.osf.io/v2/users/cdi38/
+                html: https://osf.io/cdi38/
+                profile_image: https://secure.gravatar.com/avatar/37fc491096861dae49fe23ba665af56b?d=identicon
+              attributes:
+                family_name: Nosek
+                suffix: ''
+                locale: en_US
+                date_registered: '2012-05-31T05:29:01.320000'
+                middle_names: A.
+                given_name: Brian
+                full_name: Brian A. Nosek
+                active: true
+                timezone: America/New_York
+              type: users
+              id: cdi38
