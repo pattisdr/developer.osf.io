@@ -169,7 +169,8 @@
     display: inline-block;
     vertical-align: top;
     text-overflow: ellipsis;
-    white-space: nowrap
+    white-space: nowrap;
+    padding-bottom: 10px;
 }
 
 @media (min-width: 992px) {
@@ -182,7 +183,6 @@
 @media (min-width: 1400px) {
      .swagger-section .heading .path a {
         max-width: 405px;
-        padding-bottom: 10px;
     }
 }
 
