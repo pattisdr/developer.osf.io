@@ -3,29 +3,17 @@
       description: >-
         Retrieves the details of a preprint.
 
-        TODO: Required Arguments
-        TODO: Returns
+        #### Returns
+
+        A dictionary with a `data` property containing the representation of the requested
+        preprint, if the request was successful.
 
 
-        Preprint Detail  *Writeable*.
-
-
-        ##Preprint Attributes
-
-
-        OSF Preprint entities have the "preprints" `type`.
-
-        ##Links
-
-        - `self` -- Preprint detail page for the current preprint
-
-        - `html` -- Project on the OSF corresponding to the current preprint
-
-        - `doi` -- URL representation of the DOI entered by the user for the
-        preprint manuscript
-
+        If the request was unsuccessful, a dictionary with an `errors` property containing
+        information about the failure will be returned. Refer to the [list of error codes]()
+        to understand why a preprint may have failed to be retrieved.
       parameters:
-        - description: ''
+        - description: 'The unique identifier of the preprint you wish to retrieve.'
           required: true
           type: string
           name: preprint_id
@@ -38,87 +26,78 @@
           description: 'OK'
           schema:
             $ref: 'definition.yaml'
+          examples:
+            application/json:
+              data:
+                - relationships:
+                    node:
+                      links:
+                        related:
+                          href: 'https://api.osf.io/v2/nodes/5xuck/'
+                          meta: {}
+                    citation:
+                      links:
+                        related:
+                          href: 'https://api.osf.io/v2/preprints/hqb2p/citation/'
+                          meta: {}
+                    primary_file:
+                      links:
+                        related:
+                          href: 'https://api.osf.io/v2/files/5894204f594d900200ed23f2/'
+                          meta: {}
+                    license:
+                      links:
+                        related:
+                          href: 'https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/'
+                          meta: {}
+                    provider:
+                      links:
+                        related:
+                          href: 'https://api.osf.io/v2/preprint_providers/socarxiv/'
+                          meta: {}
+                  links:
+                    self: 'https://api.osf.io/v2/preprints/hqb2p/'
+                    html: 'https://osf.io/preprints/socarxiv/hqb2p/'
+                  attributes:
+                    doi: null
+                    license_record:
+                      copyright_holders: []
+                      year: '2017'
+                    date_modified: '2017-02-03T06:19:00.158000'
+                    is_preprint_orphan: false
+                    date_published: '2017-02-03T06:18:59.788000'
+                    subjects:
+                      - - text: Social and Behavioral Sciences
+                          id: 584240da54be81056cecac48
+                        - text: Political Science
+                          id: 584240da54be81056cecac1a
+                    date_created: '2017-02-03T06:16:57.129000'
+                    is_published: true
+                  type: preprints
+                  id: hqb2p
     patch:
       summary: Update a preprint
       description: >-
-        Preprint Detail  *Writeable*.
+        Updates the specified preprint by setting the values of the parameters passed.
+        Any parameters not provided will be left unchanged.
+
+        #### Returns
+
+        A dictionary with a `data` property containing the new representation of the updated
+        preprint, if the request was successful.
 
 
-        ##Preprint Attributes
-
-
-        OSF Preprint entities have the "preprints" `type`.
-
-
-        name                            type
-        description
-
-        ====================================================================================
-
-        date_created                    iso8601 timestamp
-        timestamp that the preprint was created
-
-        date_modified                   iso8601 timestamp
-        timestamp that the preprint was last modified
-
-        date_published                  iso8601 timestamp
-        timestamp when the preprint was published
-
-        is_published                    boolean
-        whether or not this preprint is published
-
-        is_preprint_orphan              boolean
-        whether or not this preprint is orphaned
-
-        subjects                        array of tuples of dictionaries     ids
-        of Subject in the PLOS taxonomy. Dictionary, containing the subject text
-        and subject ID
-
-        doi                             string                              bare
-        DOI for the manuscript, as entered by the user
-
-
-        ##Relationships
-
-
-        ###Node
-
-        The node that this preprint was created for
-
-
-        ###Primary File
-
-        The file that is designated as the preprint's primary file, or the
-        manuscript of the preprint.
-
-
-        ###Provider
-
-        Link to preprint_provider detail for this preprint
-
-
-        ##Links
-
-        - `self` -- Preprint detail page for the current preprint
-
-        - `html` -- Project on the OSF corresponding to the current preprint
-
-        - `doi` -- URL representation of the DOI entered by the user for the
-        preprint manuscript
-
-
-        ##Updating Preprints
-
-
-        Update a preprint by sending a patch request to the guid of the existing
-        preprint node that you'd like to update.
+        If the request was unsuccessful, a dictionary with an `errors` property containing
+        information about the failure will be returned. Refer to the [list of error codes]()
+        to understand why a preprint may have failed to update.
       parameters:
-        - description: ''
+        - description: 'The unique identifier of the preprint you wish to update.'
           required: true
           type: string
           name: preprint_id
           in: path
         - name: data
+          required: true
           in: body
           schema:
             $ref: 'definition.yaml'
@@ -129,83 +108,26 @@
         - application/json
       responses:
         '200':
-          description: ''
+          description: 'OK'
     delete:
       summary: Delete a preprint
       description: >-
-        Preprint Detail  *Writeable*.
+        Permanently deletes a preprint. This action cannot be undone.
 
 
-        ##Preprint Attributes
+        Deleting a preprint **does not** delete the OSF project that the preprint
+        was related to. (TODO: check if I'm lying here or not)
+
+        #### Returns
+
+        If the request is successful, no content is returned.
 
 
-        OSF Preprint entities have the "preprints" `type`.
-
-
-        name                            type
-        description
-
-        ====================================================================================
-
-        date_created                    iso8601 timestamp
-        timestamp that the preprint was created
-
-        date_modified                   iso8601 timestamp
-        timestamp that the preprint was last modified
-
-        date_published                  iso8601 timestamp
-        timestamp when the preprint was published
-
-        is_published                    boolean
-        whether or not this preprint is published
-
-        is_preprint_orphan              boolean
-        whether or not this preprint is orphaned
-
-        subjects                        array of tuples of dictionaries     ids
-        of Subject in the PLOS taxonomy. Dictionary, containing the subject text
-        and subject ID
-
-        doi                             string                              bare
-        DOI for the manuscript, as entered by the user
-
-
-        ##Relationships
-
-
-        ###Node
-
-        The node that this preprint was created for
-
-
-        ###Primary File
-
-        The file that is designated as the preprint's primary file, or the
-        manuscript of the preprint.
-
-
-        ###Provider
-
-        Link to preprint_provider detail for this preprint
-
-
-        ##Links
-
-        - `self` -- Preprint detail page for the current preprint
-
-        - `html` -- Project on the OSF corresponding to the current preprint
-
-        - `doi` -- URL representation of the DOI entered by the user for the
-        preprint manuscript
-
-
-        ##Updating Preprints
-
-
-        Update a preprint by sending a patch request to the guid of the existing
-        preprint node that you'd like to update.
+        If the request was unsuccessful, a dictionary with an `errors` property containing
+        information about the failure will be returned. Refer to the [list of error codes]()
+        to understand why a preprint may have failed to delete.
       parameters:
-        - description: ''
+        - description: 'The unique identifier of the preprint you wish to delete.'
           required: true
           type: string
           name: preprint_id
@@ -215,4 +137,4 @@
       operationId: preprints_delete
       responses:
         '204':
-          description: ''
+          description: 'No content'

@@ -79,15 +79,3 @@ paths:
 
   /preprints/{preprint_id}/:
     $ref: 'preprints/detail.yaml'
-
-#########################
-#   MODEL DEFINITIONS   #
-#########################
-
-definitions:
-  Preprint:
-    $ref: 'preprints/definition.yaml'
-
-securityDefinitions:
-  basic:
-    type: basic
