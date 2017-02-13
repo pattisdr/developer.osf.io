@@ -79,3 +79,9 @@ paths:
 
   /preprints/{preprint_id}/:
     $ref: 'preprints/detail.yaml'
+
+  /preprints/{preprint_id}/citation/:
+    $ref: 'preprints/citation_detail.yaml'
+
+  /preprints/{preprint_id}/citation/{style_id}/:
+    $ref: 'preprints/citation_style_detail.yaml'
