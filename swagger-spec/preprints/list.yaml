@@ -94,13 +94,13 @@ post:
 
     #### Returns
 
-    A dictionary with a `data` property containing the representation of the created
-    preprint, if the request was successful.
+    Returns a dictionary with a `data` property containing the representation of the created
+    preprint, if the request is successful.
 
 
-    If the request was unsuccessful, a dictionary with an `errors` property containing
+    If the request is unsuccessful, a dictionary with an `errors` property containing
     information about the failure will be returned. Refer to the [list of error codes]()
-    to understand why a preprint may have failed to be created.
+    to understand why this request may have failed.
   parameters:
     - in: body
       name: data

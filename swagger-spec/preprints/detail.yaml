@@ -5,19 +5,19 @@
 
         #### Returns
 
-        A dictionary with a `data` property containing the representation of the requested
-        preprint, if the request was successful.
+        Returns a dictionary with a `data` property containing the representation of the requested
+        preprint, if the request is successful.
 
 
-        If the request was unsuccessful, a dictionary with an `errors` property containing
+        If the request is unsuccessful, a dictionary with an `errors` property containing
         information about the failure will be returned. Refer to the [list of error codes]()
-        to understand why a preprint may have failed to be retrieved.
+        to understand why this request may have failed.
       parameters:
-        - description: 'The unique identifier of the preprint you wish to retrieve.'
-          required: true
+        - in: path
           type: string
+          required: true
           name: preprint_id
-          in: path
+          description: 'The unique identifier of the preprint you wish to retrieve.'
       tags:
         - Preprints
       operationId: preprints_read
@@ -83,22 +83,22 @@
 
         #### Returns
 
-        A dictionary with a `data` property containing the new representation of the updated
-        preprint, if the request was successful.
+        Returns a dictionary with a `data` property containing the new representation of the updated
+        preprint, if the request is successful.
 
 
-        If the request was unsuccessful, a dictionary with an `errors` property containing
+        If the request is unsuccessful, a dictionary with an `errors` property containing
         information about the failure will be returned. Refer to the [list of error codes]()
-        to understand why a preprint may have failed to update.
+        to understand why this request may have failed.
       parameters:
-        - description: 'The unique identifier of the preprint you wish to update.'
-          required: true
+        - in: path
           type: string
-          name: preprint_id
-          in: path
-        - name: data
           required: true
-          in: body
+          name: preprint_id
+          description: 'The unique identifier of the preprint you wish to update.'
+        - in: body
+          required: true
+          name: data
           schema:
             $ref: 'definition.yaml'
       tags:
@@ -123,15 +123,15 @@
         If the request is successful, no content is returned.
 
 
-        If the request was unsuccessful, a dictionary with an `errors` property containing
+        If the request is unsuccessful, a dictionary with an `errors` property containing
         information about the failure will be returned. Refer to the [list of error codes]()
-        to understand why a preprint may have failed to delete.
+        to understand why this request may have failed.
       parameters:
-        - description: 'The unique identifier of the preprint you wish to delete.'
-          required: true
+        - in: path
           type: string
+          required: true
           name: preprint_id
-          in: path
+          description: 'The unique identifier of the preprint you wish to delete.'
       tags:
         - Preprints
       operationId: preprints_delete

@@ -18,37 +18,37 @@ properties:
     description: 'The properties of the preprint entity.'
     properties:
       date_created:
+        type: string
+        format: date-time
+        readOnly: true
         description: 'The time at which the preprint was created, as an iso8601 formatted timestamp.'
-        format: date-time
-        readOnly: true
-        type: string
       date_modified:
+        type: string
+        format: date-time
+        readOnly: true
         description: 'The time at which the preprint was last modified, as an iso8601 formatted timestamp.'
-        format: date-time
-        readOnly: true
-        type: string
       date_published:
-        description: 'The time at which the preprint was published, as an iso8601 formatted timestamp.'
+        type: string
         format: date-time
         readOnly: true
-        type: string
+        description: 'The time at which the preprint was published, as an iso8601 formatted timestamp.'
       doi:
+        type: string
+        readOnly: false
         description: 'The [DOI](https://www.doi.org/) for the manuscript of the preprint, as entered by the user.'
-        readOnly: false
-        type: string
       is_preprint_orphan:
-        description: 'Whether or not the preprint is orphaned. TODO: explain what orphaned means in this context.'
-        readOnly: true
         type: boolean
+        readOnly: true
+        description: 'Whether or not the preprint is orphaned. TODO: explain what orphaned means in this context.'
       license_record:
-        description: 'The metadata (copyright year and holder) associated with a license, required for certain licenses.'
-        readOnly: false
         type: string
-      subjects:
-        description: 'A list of lists of dictionaries that describe subjects related to the preprint, in the PLOS taxonomy[link me pls]. Each dictionary contains the text and ID of a subject.'
         readOnly: false
+        description: 'The metadata (copyright year and holder) associated with a license, required for certain licenses.'
+      subjects:
         # TODO: this is not at all correct, it's a list of lists of dictionaries
         type: string
+        readOnly: false
+        description: 'A list of lists of dictionaries that describe subjects related to the preprint, in the PLOS taxonomy[link me pls]. Each dictionary contains the text and ID of a subject.'
   relationships:
     type: object
     readOnly: false
@@ -59,25 +59,25 @@ properties:
       - provider
     properties:
       citation:
-        description: 'A relationship to the citation of the preprint.'
+        type: string
         readOnly: true
-        type: string
+        description: 'A relationship to the citation of the preprint.'
       license:
+        type: string
+        readOnly: false
         description: 'A relationship to the license that has been applied to the preprint. TODO: note here what license preprints default to.'
-        readOnly: false
-        type: string
       node:
+        type: string
+        readOnly: false
         description: 'A relationship to the node that was created for the preprint, or from which the preprint was created.'
-        readOnly: false
-        type: string
       primary_file:
+        type: string
+        readOnly: false
         description: 'A relationship to the file that is designated as the preprint''s primary file, or the manuscript of the preprint.'
-        readOnly: false
-        type: string
       provider:
-        description: 'A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.)'
-        readOnly: false
         type: string
+        readOnly: false
+        description: 'A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.)'
   links:
     type: object
     readOnly: true
