@@ -10,7 +10,7 @@ The openapi specification and source code for the documenting the Open Science F
 #### Spec Validation
 - `npm install -g swagger-cli`
 - `swagger validate swagger.yaml` (bundles and validates the given specification against the OpenAPI 2.0 schema and spec)
-- `swagger bundle -o <output_file_name> swagger.yaml` (bundles a multi-file specification into a single file)
+- `swagger bundle -o <output_file_name> swagger.yaml` (bundles a multi-file specification into a single JSON file)
 
 #### OpenAPI Specification
 - The openapi specification for the OSF API lives in [swagger-spec/swagger.yaml](https://github.com/caseyrollins/swagger-ui/blob/master/swagger-spec/swagger.yaml) and contains references to many YAML files in the [swagger-spec](https://github.com/caseyrollins/swagger-ui/tree/master/swagger-spec) directory.
