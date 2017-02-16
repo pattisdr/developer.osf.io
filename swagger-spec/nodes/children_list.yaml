@@ -7,7 +7,7 @@ parameters:
   in: path
 
 get:
-  summary: 'Retrieve all child nodes'
+  summary: 'List all child nodes'
   description: >-
 
     A paginated list of the next level child nodes for the given node.
