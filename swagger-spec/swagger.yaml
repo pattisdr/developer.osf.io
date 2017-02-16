@@ -82,7 +82,7 @@ paths:
 
   # /comments/{comment_id}/reports/{user_id}/:
   #   $ref: 'comments/report_detail.yaml'
-  
+
   ############
   #   LOGS   #
   ############
@@ -115,6 +115,13 @@ paths:
 
   # /institutions/{institution_id}/relationships/nodes/:
   #   $ref: 'institutions/nodes_relationships.yaml'
+
+  #############
+  #   NODES   #
+  #############
+
+  /nodes/:
+    $ref: 'nodes/list.yaml'
 
   #################
   #   PREPRINTS   #
