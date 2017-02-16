@@ -55,9 +55,9 @@ paths:
   /osf_enum_fields/:
     $ref: 'introduction/osf_enum_fields.yaml'
 
-############
-#   BASE   #
-############
+  ############
+  #   BASE   #
+  ############
 
   /:
     get:
@@ -70,9 +70,22 @@ paths:
         - Base
       operationId: base_read
 
-############
-#   LOGS   #
-############
+  ################
+  #   COMMENTS   #
+  ################
+
+  /comments/{comment_id}/:
+    $ref: 'comments/detail.yaml'
+
+  # /comments/{comment_id}/reports/:
+  #   $ref: 'comments/reports_list.yaml'
+
+  # /comments/{comment_id}/reports/{user_id}/:
+  #   $ref: 'comments/report_detail.yaml'
+  
+  ############
+  #   LOGS   #
+  ############
 
   /logs/{log_id}/:
     $ref: 'logs/detail.yaml'
@@ -81,9 +94,9 @@ paths:
   /actions/:
     $ref: 'logs/actions.yaml'
 
-####################
-#   INSTITUTIONS   #
-####################
+  ####################
+  #   INSTITUTIONS   #
+  ####################
 
   /institutions/:
     $ref: 'institutions/list.yaml'
@@ -103,9 +116,9 @@ paths:
   # /institutions/{institution_id}/relationships/nodes/:
   #   $ref: 'institutions/nodes_relationships.yaml'
 
-#################
-#   PREPRINTS   #
-#################
+  #################
+  #   PREPRINTS   #
+  #################
 
   /preprints/:
     $ref: 'preprints/list.yaml'
