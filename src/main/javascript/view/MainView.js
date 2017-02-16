@@ -20,13 +20,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       return a.path.localeCompare(b.path);
     },
     method: function (a, b) {
-      if (a.method == b.method) {
-        return 0;
-      } else if (a.method == 'post' || b.method == 'post') {
-        return -1;
-      } else if (a.method == 'delete' || b.method == 'delete') {
-        return 1;
-      }
+      return a.method.localeCompare(b.method);
     }
   },
   initialize: function (opts) {
