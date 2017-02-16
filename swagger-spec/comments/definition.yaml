@@ -10,7 +10,7 @@ properties:
   type:
     type: string
     readOnly: true
-    description: 'The type identifier of the preprint entity (`comments`).'
+    description: 'The type identifier of the comment entity (`comments`).'
   attributes:
     type: object
     readOnly: false
@@ -23,7 +23,7 @@ properties:
       content:
         type: string
         readOnly: false
-        description: Content of the comment.
+        description: The content of the comment.
       date_created:
         type: string
         format: date-time
@@ -59,7 +59,7 @@ properties:
         readOnly: true
         description: Whether or not the comment has replies.
       page:
-        description: 'Page type the comment is on (`node`, `registration`, `wiki`, `files`)'
+        description: 'The page type the comment is on, e.g. `node`, `registration`, `wiki`, `files`.'
         readOnly: true
         type: string
   relationships:
@@ -71,27 +71,27 @@ properties:
         type: string
         format: URL
         readOnly: true
-        description: 'A relationship to the node the comment is on'
+        description: 'A relationship to the node the comment is on.'
       replies:
         type: string
         format: URL
         readOnly: true
-        description: 'A relationship to the replies to the comment'
+        description: 'A relationship to the replies to the comment.'
       target:
         type: string
         format: URL
         readOnly: true
-        description: 'A relationship to the target of the comment'
+        description: 'A relationship to the target of the comment.'
       reports:
         type: string
         format: URL
         readOnly: true
-        description: 'A relationship to the reports connected to the comment'
+        description: 'A relationship to the reports connected to the comment.'
       user:
         type: string
         format: URL
         readOnly: true
-        description: 'A relationship to the user who created the comment'
+        description: 'A relationship to the user who created the comment.'
   links:
     type: object
     readOnly: true
