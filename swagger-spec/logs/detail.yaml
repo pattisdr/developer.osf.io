@@ -26,6 +26,7 @@ get:
   tags:
     - Logs
   operationId: logs_read
+  x-reponse-schema: Log
   responses:
     '200':
       description: ''
