@@ -1,1 +1,128 @@
 # /preprint_providers/
+get:
+  summary: List all preprint providers
+  description: >-
+
+    A paginated list of all preprint providers.
+    The returned preprint providers are sorted by their creation date, with the most recent
+    preprints appearing first.
+
+    #### Returns
+
+    JSON with `data` and `links` keys.
+
+
+    The `data` key contains an array of 10 preprint providers.
+    Each resource in the array is a separate preprint provider object.
+    The `links` key contains JSON of links that can be used
+    for [pagination](http://jsonapi.org/format/1.0/#fetching-pagination).
+
+
+    This request should never return an error.
+
+    #### Filtering
+
+    You can optionally request that the response only include preprint providers that
+    match your filters by utilizing the `filter` query parameter, e.g.
+    https://api.osf.io/v2/preprint_providers/?filter[id]=osf.
+
+
+    Preprint Providers may be filtered by their `id`, `name`,  and `description`
+
+
+    #### Acceptable Subjects Structure
+    
+    Each preprint provider specifies acceptable subjects. 
+
+    `subjects_acceptable` is an array found in `attribtues`. 
+
+    Subjects consist of general parent subjects (e.g., Engineering), 
+    more specific child subjects (e.g., Aerospace Engineering),
+    and even more specific grandchild subjects (e.g., Aerodynamics and Fluid Mechanics).
+    Subjects can only be nested 3 deep. 
+
+
+        "subjects_acceptable": [
+            [
+                [
+                    # Parent Subject:
+                    # Architecture
+                    "584240d954be81056ceca9e5",
+
+                    # Child Subject: 
+                    # Architectural Engineering
+                    "584240da54be81056cecac87" 
+                ],
+                # Include all Architectural Engineering's children:
+                true 
+            ],
+            [
+                [
+                    # Parent Subject:
+                    # Engineering
+                    "584240da54be81056cecaca9",
+
+                    # Child Subject:
+                    # Aerospace Engineering
+                    "584240db54be81056cecacd6",
+
+                    # Grandchild Subject:
+                    # Aerodynamics and Fluid Mechanics
+                    "584240da54be81056cecaa74"
+                ],
+                # All nestings 3 deep must be false
+                false
+            ]
+        ]
+
+    The above structure would allow Architecture, Architectural Engineering, all of Architectural Engineering's children,
+    Engineering, Aerospace Engineering, and Aerodynamics and Fluid Mechanics. 
+
+  tags:
+    - Preprint Providers
+  operationId: preprint_provider_list
+  x-response-schema: 'Preprint Provider'
+  responses:
+    '200':
+      description: 'OK'
+      schema:
+        $ref: 'definition.yaml'
+      examples:
+        application/json:
+          data:
+            - relationships:
+                licenses_acceptable:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/preprint_providers/osf/licenses/
+                      meta: {}
+                taxonomies:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/preprint_providers/osf/taxonomies/
+                      meta: {}
+                preprints:
+                  links:
+                    related:
+                      href: https://api.osf.io/v2/preprint_providers/osf/preprints/
+                      meta: {}
+              links:
+                self: https://api.osf.io/v2/preprint_providers/osf/
+                preprints: https://api.osf.io/v2/preprint_providers/osf/preprints/
+                external_url: https://osf.io/preprints/
+              attributes:
+                social_instagram: ''
+                advisory_board: ''
+                email_support: ''
+                banner_path: "/static/img/preprint_providers/cos-logo.png"
+                logo_path: "/static/img/preprint_providers/cos-logo.png"
+                subjects_acceptable: []
+                description: A scholarly commons to connect the entire research cycle
+                social_facebook: ''
+                header_text: ''
+                social_twitter: ''
+                email_contact: ''
+                example: khbvy
+                name: Open Science Framework
+              type: preprint_providers
+              id: osf
