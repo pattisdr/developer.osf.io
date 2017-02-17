@@ -93,6 +93,19 @@ paths:
   # /comments/{comment_id}/reports/{user_id}/:
   #   $ref: 'comments/report_detail.yaml'
 
+  #############
+  #   FILES   #
+  #############
+
+  /files/{file_id}/:
+    $ref: 'files/detail.yaml'
+
+  /files/{file_id}/versions/:
+    $ref: 'files/versions_list.yaml'
+
+  /files/{file_id}/versions/{version_id}/:
+    $ref: 'files/version_detail.yaml'
+
   #################
   #    LICENSES   #
   #################
