@@ -129,27 +129,3 @@ patch:
   responses:
     '200':
       description: 'OK'
-
-delete:
-  summary: Delete a preprint
-  description: >-
-    Permanently deletes a preprint. This action cannot be undone.
-
-
-    Deleting a preprint **does not** delete the OSF project that the preprint
-    was related to. (TODO: check if I'm lying here or not)
-
-    #### Returns
-
-    If the request is successful, no content is returned.
-
-
-    If the request is unsuccessful, a dictionary with an `errors` property containing
-    information about the failure will be returned. Refer to the [list of error codes]()
-    to understand why this request may have failed.
-  tags:
-    - Preprints
-  operationId: preprints_delete
-  responses:
-    '204':
-      description: 'No content'
