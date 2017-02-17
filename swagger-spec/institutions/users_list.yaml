@@ -1,6 +1,6 @@
 # /institutions/{institution_id}/users/
 get:
-  summary: Retrieve affiliated users
+  summary: List all affiliated users
   description: >-
     A paginated list of all users affiliated with an institution.
 

@@ -1,6 +1,6 @@
 # /institutions/{institution_id}/registrations/
 get:
-  summary: Retrieve affiliated registrations
+  summary: List all affiliated registrations
   description: >-
     A paginated list of all registrations affiliated with an institution.
 

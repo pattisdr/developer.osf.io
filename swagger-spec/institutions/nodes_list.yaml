@@ -1,6 +1,6 @@
 # /institutions/{institution_id}/nodes/
 get:
-  summary: Retrieve affiliated nodes
+  summary: List all affiliated nodes
   description: >-
     A paginated list of all nodes affiliated with an institution.
 

@@ -6,7 +6,7 @@ properties:
     readOnly: true
     description: The identifier of the institution entity.
   type:
-    type: string  
+    type: string
     readOnly: true
     description: The type identifier of the institution identity (`institutions`).
   attributes:

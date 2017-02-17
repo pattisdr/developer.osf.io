@@ -1,6 +1,6 @@
 # /institutions/
 get:
-  summary: Retrieve all institutions
+  summary: List all institutions
   description: >-
 
     A paginated list of all verified institutions.
