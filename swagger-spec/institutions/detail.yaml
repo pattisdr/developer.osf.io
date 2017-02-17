@@ -7,7 +7,7 @@ get:
     ####Returns
 
     Returns JSON with a `data` key containing the representation of the requested
-    institution, if the request was successful. 
+    institution, if the request was successful.
 
 
     If the request is unsuccessful, JSON with an `errors` key containing
@@ -23,6 +23,7 @@ get:
   tags:
     - Institutions
   operationId: institutions_detail
+  x-response-schema: Institution
   responses:
     '200':
       description: OK

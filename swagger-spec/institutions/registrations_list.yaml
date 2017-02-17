@@ -31,6 +31,7 @@ get:
   tags:
     - Institutions
   operationId: institutions_registration_list
+  x-response-schema: Registration
   responses:
     '200':
       description: OK

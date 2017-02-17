@@ -30,6 +30,7 @@ get:
   tags:
     - Institutions
   operationId: institutions_list
+  x-response-schema: Institution
   responses:
     '200':
       description: OK

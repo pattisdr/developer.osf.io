@@ -7,7 +7,7 @@ get:
     ####Returns
 
     Returns JSON with a `data` key containing the representation of the requested
-    comment, if the request was successful. 
+    comment, if the request was successful.
 
 
     If the request is unsuccessful, JSON with an `errors` key containing
@@ -23,6 +23,7 @@ get:
   tags:
     - Comments
   operationId: comments_read
+  x-response-schema: Comment
   responses:
     '200':
       description: 'OK'

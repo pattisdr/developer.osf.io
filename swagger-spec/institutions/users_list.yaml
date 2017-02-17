@@ -35,6 +35,7 @@ get:
   tags:
     - Institutions
   operationId: institutions_users_list
+  x-response-schema: User
   responses:
     '200':
       description: OK
