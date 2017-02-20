@@ -1,4 +1,3 @@
-# /nodes/{node_id}/preprints/
 get:
   summary: List all preprints
   description: >-

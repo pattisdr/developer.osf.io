@@ -1,15 +1,3 @@
-parameters:
-- in: path
-  type: string
-  name: node_id
-  required: true
-  description: 'The unique identifier of the node.'
-- in: path
-  type: string
-  name: user_id
-  required: true
-  description: 'The unique identifier of the user.'
-
 get:
   summary: Retrieve a contributor
   description: >-
@@ -32,6 +20,17 @@ get:
     information about the failure will be returned. Refer to the [list of error codes]()
     to understand why this request may have failed.
 
+  parameters:
+  - in: path
+    type: string
+    name: node_id
+    required: true
+    description: 'The unique identifier of the node.'
+  - in: path
+    type: string
+    name: user_id
+    required: true
+    description: 'The unique identifier of the user.'
   tags:
     - Nodes
   operationId: nodes_contributors_read
@@ -125,6 +124,16 @@ patch:
     A node must always have at least one admin, and any attempt to downgrade the permissions of a sole admin will result in a 400 Bad Request error.
 
   parameters:
+    - in: path
+      type: string
+      name: node_id
+      required: true
+      description: 'The unique identifier of the node.'
+    - in: path
+      type: string
+      name: user_id
+      required: true
+      description: 'The unique identifier of the user.'
     - in: body
       name: body
       required: true
@@ -162,6 +171,17 @@ delete:
     information about the failure will be returned. Refer to the [list of error codes]()
     to understand why this request may have failed.
 
+  parameters:
+    - in: path
+      type: string
+      name: node_id
+      required: true
+      description: 'The unique identifier of the node.'
+    - in: path
+      type: string
+      name: user_id
+      required: true
+      description: 'The unique identifier of the user.'
   tags:
     - Nodes
   operationId: nodes_contributors_delete

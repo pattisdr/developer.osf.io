@@ -1,11 +1,3 @@
-# /preprint_providers/{provider_id}/taxonomies/
-parameters:
-  - in: path
-    type: string
-    required: true
-    name: preprint_provider_id
-    description: 'The unique identifier of the preprint provider.'
-
 get:
   summary: List all taxonomies
   description: >-
@@ -29,6 +21,12 @@ get:
     information about the failure will be returned. Refer to the [list of error codes]()
     to understand why this request may have failed.
 
+  parameters:
+    - in: path
+      type: string
+      required: true
+      name: preprint_provider_id
+      description: 'The unique identifier of the preprint provider.'
   tags:
     - Preprint Providers
   operationId: preprint_provider_taxonomies_list
@@ -54,9 +52,9 @@ get:
               type: taxonomies
               id: 584240d854be81056ceca838
           links:
-            first: 
+            first:
             last: https://api.osf.io/v2/preprint_providers/osf/taxonomies/?page=122
-            prev: 
+            prev:
             next: https://api.osf.io/v2/preprint_providers/osf/taxonomies/?page=2
             meta:
               total: 1217
