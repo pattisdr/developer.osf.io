@@ -36,9 +36,8 @@ get:
   responses:
     '200':
       description: 'OK'
-      # commented out until taxonomies exists
-      # schema:
-      #   $ref: '../taxonomies/definition.yaml'
+      schema:
+        $ref: '../taxonomies/definition.yaml'
       examples:
         application/json:
           data:
