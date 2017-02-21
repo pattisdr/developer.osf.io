@@ -1,4 +1,5 @@
 get:
+  summary: Versioning
   description: >-
     Versioning can be specified in three different ways:
 
@@ -57,9 +58,9 @@ get:
     the versions must match exactly or a 409 Conflict response will be
     returned (i.e. one does not take precedence over the other).
 
-  summary: Versioning
+  operationId: versioning
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction

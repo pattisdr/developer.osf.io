@@ -1,4 +1,5 @@
 get:
+  summary: Attribute Validation
   description: >-
     Endpoints that allow creation or modification of entities generally limit updates to certain attributes of the entity.
 
@@ -13,7 +14,7 @@ get:
     Typoed or non-existent attributes will behave the same as non-updatable attributes and will be silently ignored.
     If a request is not working the way you expect, make sure to double check your spelling.
 
-  summary: Attribute Validation
+  operationId: attribute_validation
   responses:
     '200':
       description: OK

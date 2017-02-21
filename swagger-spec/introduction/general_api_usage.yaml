@@ -1,4 +1,5 @@
 get:
+  summary: General API Usage
   description: >-
     The OSF API generally conforms to the [JSON-API v1.0 spec](http://jsonapi.org/format/1.0/).
     Where exceptions exist, they will be noted.
@@ -41,9 +42,9 @@ get:
 
     An `OPTIONS` request will return a JSON object that describes the endpoint, including the name, a description, the acceptable request formats, the allowed response formats, and any actions available via the endpoint.
 
-  summary: General API Usage
+  operationId: general
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction

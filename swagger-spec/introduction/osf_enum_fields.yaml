@@ -1,4 +1,5 @@
 get:
+  summary: Enum Fields
   description: >-
     Some entities in the OSF API have fields that only take a restricted set of values. Those fields are listed here for reference.
 
@@ -42,10 +43,9 @@ get:
         osfstorage   OSF Storage
         s3           Amazon S3
 
-
-  summary: Enum Fields
+  operationId: enum_fields
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction
