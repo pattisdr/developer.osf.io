@@ -1,4 +1,5 @@
 get:
+  summary: Errors
   description: >-
     When a request fails for any reason, the OSF API will return an appropriate HTTP error code and include a descriptive error in the body of the response.
 
@@ -40,9 +41,9 @@ get:
           ]
         }
 
-  summary: Errors
+  operation_id: errors
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction

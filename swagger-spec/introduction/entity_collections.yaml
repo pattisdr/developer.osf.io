@@ -1,4 +1,5 @@
 get:
+  summary: Entity Collections
   description: >-
     Entity collection endpoints return a list of entities and an additional data structure with pagination links,
     such as `next`, `prev`, `first`, and `last`.
@@ -26,9 +27,9 @@ get:
 
     If there are only enough results to fill one page, the `first`, `last`, `prev`, and `next` values will be null.
 
-  summary: Entity Collections
+  operation_id: entity_collections
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction

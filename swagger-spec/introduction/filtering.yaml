@@ -38,8 +38,9 @@ get:
 
     &nbsp;&nbsp;&nbsp;&nbsp;`/nodes/?filter[tags][icontains]=help`
 
+  operation_id: filtering
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction

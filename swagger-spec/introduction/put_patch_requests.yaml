@@ -61,8 +61,9 @@ get:
     **PUT** requests require all mandatory attributes to be set, even if their value is unchanged.
     **PATCH** requests may omit mandatory attributes, whose value will be unchanged.
 
+  operation_id: create_update_requests
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction

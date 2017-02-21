@@ -38,8 +38,9 @@ get:
 
     Some endpoints are automatically embedded, such as the [node contributors](TODO: link me) endpoint, which automatically embeds user information.
 
+  operation_id: embedding
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction

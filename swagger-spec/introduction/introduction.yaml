@@ -1,4 +1,5 @@
 get:
+  summary: Introduction
   description: >-
     Welcome to the Open Science Framework API. With this API you can access
     users, projects, components, logs, and files from the [Open Science
@@ -26,9 +27,10 @@ get:
     release, the beta status will be removed, at which point we will provide
     details on how long we will support the API V2 and under what
     circumstances it might change.
-  summary: Introduction
+
+  operation_id: introduction
+  tags:
+    - Introduction
   responses:
     '200':
       description: OK
-  tags:
-    - Introduction
