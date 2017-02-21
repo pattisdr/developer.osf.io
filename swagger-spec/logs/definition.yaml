@@ -1,4 +1,3 @@
-# Log Model Definition
 type: object
 title: Log
 required:
@@ -14,6 +13,7 @@ properties:
     description: 'The type identifier of the log (`logs`)'
   attributes:
     type: object
+    title: Attributes
     readOnly: true
     description: 'The properties of the log.'
     properties:
@@ -67,7 +67,7 @@ properties:
             type: string
             readOnly: true
             description: 'The github user involved with the action represented by this node log.'
-          github_repo: 
+          github_repo:
             type: string
             readOnly: true
             description: 'The github repository involved with the action represented by this node log.'
@@ -195,6 +195,7 @@ properties:
     description: 'Links related to this log'
     readOnly: true
     type: object
+    title: Links
     properties:
       self:
         type: string
@@ -203,6 +204,7 @@ properties:
         description: 'A link to the detail page for the log.'
   relationships:
     type: object
+    title: Relationships
     readOnly: true
     description: 'URLs to other entities or entity collections that have a relationship to the log.'
     required:

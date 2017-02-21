@@ -16,6 +16,7 @@ properties:
 
   attributes:
     type: object
+    title: Attributes
     readOnly: false
     description: 'The properties of the node entity.'
     required:
@@ -107,6 +108,7 @@ properties:
 
   relationships:
     type: object
+    title: Relationships
     readOnly: false
     description: 'URLs to other entities or entity collections that have a relationship to the node entity.'
     properties:
@@ -197,6 +199,7 @@ properties:
 
   links:
     type: object
+    title: Links
     readOnly: true
     description: 'URLs to alternative representations of the node entity.'
     properties:

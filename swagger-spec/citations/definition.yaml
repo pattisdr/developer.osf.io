@@ -11,6 +11,7 @@ properties:
     description: 'The type identifier of the citation style entity (`citation-styles`).'
   attributes:
     type: object
+    title: Attributes
     readOnly: true
     description: 'The properties of the citation style entity.'
     properties:
@@ -32,7 +33,8 @@ properties:
         readOnly: true
         description: 'The official name of the citation style.'
   links:
-    type: string
+    type: object
+    title: Links
     readOnly: true
     description: 'URLs to alternative representations of the citation style entity.'
 

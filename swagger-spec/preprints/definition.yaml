@@ -14,6 +14,7 @@ properties:
     description: 'The type identifier of the preprint entity (`preprints`).'
   attributes:
     type: object
+    title: Attributes
     readOnly: false
     description: 'The properties of the preprint entity.'
     properties:
@@ -51,6 +52,7 @@ properties:
         description: 'A list of lists of dictionaries that describe subjects related to the preprint, in the PLOS taxonomy[link me pls]. Each dictionary contains the text and ID of a subject.'
   relationships:
     type: object
+    title: Relationships
     readOnly: false
     description: 'URLs to other entities or entity collections that have a relationship to the preprint entity.'
     required:
@@ -80,6 +82,7 @@ properties:
         description: 'A relationship to the preprint provider under which the preprint was created (OSF, socarxiv, psyarxiv, etc.)'
   links:
     type: object
+    title: Links
     readOnly: true
     description: 'URLs to alternative representations of the preprint entity.'
     properties:
