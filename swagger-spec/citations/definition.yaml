@@ -1,5 +1,9 @@
 type: object
 title: Citation Style
+required:
+  - id
+  - type
+  - attributes
 properties:
   id:
     type: string
@@ -13,6 +17,9 @@ properties:
     type: object
     title: Attributes
     readOnly: true
+    required:
+      - date_parsed
+      - title
     description: 'The properties of the citation style entity.'
     properties:
       date_parsed:
