@@ -2,6 +2,10 @@ type: object
 title: Log
 required:
   - id
+  - type
+  - attributes
+  - relationships
+  - links
 properties:
   id:
     type: string
@@ -16,6 +20,9 @@ properties:
     title: Attributes
     readOnly: true
     description: 'The properties of the log.'
+    required:
+      - action
+      - date
     properties:
       date:
         type: string
@@ -28,6 +35,7 @@ properties:
         description: 'The type of action performed on the OSF. See actions section for full list of possible actions.'
       params:
         type: object
+        title: Log Params
         readOnly: true
         description: 'The type of action performed on the OSF. See description for full list of possible actions.'
         properties:
@@ -191,17 +199,6 @@ properties:
             type: string
             readOnly: true
             description: 'A dictionary with information about the wiki page associated with the log.'
-  links:
-    description: 'Links related to this log'
-    readOnly: true
-    type: object
-    title: Links
-    properties:
-      self:
-        type: string
-        format: URL
-        readOnly: true
-        description: 'A link to the detail page for the log.'
   relationships:
     type: object
     title: Relationships
@@ -215,21 +212,34 @@ properties:
         readOnly: true
         type: string
       original_node:
-        description: 'A relationship to the original node that was associated with this log, in case this log was a remnant of when the original node was forked or registered.'
+        description: 'A relationship to the original node that was associated with this log, in case this log was copied from a node to a fork or registration.'
         readOnly: true
         type: string
       user:
-        description: 'The user associated with this log'
+        description: 'A relationship to the user who performed the log action.'
         readOnly: true
         type: string
       linked_node:
-        description: 'A node linked to this log'
+        description: 'A relationship to the node linked to this log.'
         readOnly: true
         type: string
       template_node:
-        description: 'Node used as a template for this log'
+        description: 'A relationship to the node used as a template for this log.'
         readOnly: true
         type: string
+  links:
+    description: 'URLs to alternative representations of the log entity.'
+    readOnly: true
+    type: object
+    title: Links
+    required:
+      - self
+    properties:
+      self:
+        type: string
+        format: URL
+        readOnly: true
+        description: 'A link to the detail page for the log.'
 
 example:
   data:
