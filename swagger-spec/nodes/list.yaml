@@ -2,9 +2,16 @@ get:
   summary: List all nodes
   description: >-
 
-    A paginated list of all public nodes, representing projects and components, on the OSF.
+    A paginated list of nodes, representing projects and components, on the OSF.
+
+
+    The returned nodes are those which are public or which the user has access to view.
+
+
     The returned nodes are sorted by their `date_modified`, with the most recently updated nodes appearing first.
-    Registrations cannot be accessed through this endpoint (use the registrations endpoints instead).
+
+
+    Registrations cannot be accessed through this endpoint (use the [registrations](#Registrations_registrations_list) endpoints instead).
 
     #### Returns
 
