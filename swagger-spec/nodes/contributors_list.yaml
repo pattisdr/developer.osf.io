@@ -16,15 +16,11 @@ get:
 
     #### Returns
 
-    A JSON object with `data` and `links` keys.
+    Returns a JSON object containing `data` and `links` keys.
 
 
     The `data` key contains an array of 10 contributors.
-
-
     Each resource in the array contains the full representation of the contributor, meaning additional requests to a contributor's detail view are not necessary.
-
-
     Additionally, the full representation of the user this contributor represents is automatically embedded within the `data` key of the response.
 
 
@@ -149,7 +145,7 @@ post:
     Returns a JSON object with a `data` key containing the representation of the new contributor, if the request is successful.
 
 
-    If the request is unsuccessful, a dictionary with an `errors` property containing information about the failure will be returned.
+    If the request is unsuccessful, an `errors` key containing information about the failure will be returned.
     Refer to the [list of error codes](#Introduction_error_codes) to understand why this request may have failed.
 
   parameters:

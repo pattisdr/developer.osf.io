@@ -6,7 +6,7 @@ get:
 
     #### Returns
 
-    Returns JSON with a `data` key that contains the representation of the preprint
+    Returns a JSON object with a `data` key that contains the representation of the preprint
     citation, in the requested style.
 
   parameters:

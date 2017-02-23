@@ -10,7 +10,7 @@ get:
     * `project_created`: A Node is created
 
     * `project_registered`: A Node is registered
-    
+
     * `project_deleted`: A Node is deleted
 
     * `created_from`: A Node is created using an existing Node as a template

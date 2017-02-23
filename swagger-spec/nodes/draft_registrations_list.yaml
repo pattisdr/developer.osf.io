@@ -16,15 +16,15 @@ get:
 
     #### Returns
 
-    Returns JSON with a `data` and `links` property.
+    Returns a JSON object containing `data` and `links` keys.
 
 
-    The `data` property contains an array of 10 draft registrations.
+    The `data` key contains an array of 10 draft registrations.
     Each resource in the array is a separate draft registration object and contains the full representation of the draft registration,
     meaning additional requests to a draft registration's detail view are not necessary.
 
 
-    The `links` property contains a dictionary of links that can be used
+    The `links` key contains a dictionary of links that can be used
     for [pagination](#Introduction_pagination).
 
   parameters:
@@ -105,11 +105,11 @@ post:
 
     #### Returns
 
-    Returns a dictionary with a `data` property containing the representation of the created
+    Returns a JSON object with a `data` key containing the representation of the created
     draft registration, if the request is successful.
 
 
-    If the request is unsuccessful, a dictionary with an `errors` property containing
+    If the request is unsuccessful, an `errors` key containing
     information about the failure will be returned. Refer to the [list of error codes](#Introduction_error_codes)
     to understand why this request may have failed.
 

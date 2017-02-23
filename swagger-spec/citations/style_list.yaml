@@ -1,4 +1,3 @@
-# /citations/styles/
 get:
   summary: List all citation styles
   description: >-
@@ -7,14 +6,14 @@ get:
 
     #### Returns
 
-    Returns JSON with a `data` and `links` property.
+    Returns a JSON object containing `data` and `links` keys.
 
 
-    The `data` property contains an array of 10 citation styles.
+    The `data` key contains an array of 10 citation styles.
     Each resource in the array is a separate citation syle and contains the full representation of the citation style object.
 
 
-    The `links` property contains a dictionary of links that can be used
+    The `links` key contains a dictionary of links that can be used
     for [pagination](#Introduction_pagination).
 
 

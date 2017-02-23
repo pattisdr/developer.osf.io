@@ -6,16 +6,14 @@ get:
 
     #### Returns
 
-    A dictionary with a `data` and `links` property.
+    Returns a JSON object containing `data` and `links` keys.
 
-    The `data` property contains an array of 10 licenses.
+    The `data` key contains an array of 10 licenses.
     Each resource in the array is a separate license object and contains the full representation
     of the license, meaning additional requests to a license's detail view are not necessary.
 
 
-    The `data` property contains an array of 10 licenses.
-    Each resource in the array is a separate license object.
-    The `links` property contains a dictionary of links that can be used
+    The `links` key contains a dictionary of links that can be used
     for [pagination](#Introduction_pagination).
 
 

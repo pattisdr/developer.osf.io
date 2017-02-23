@@ -1,4 +1,3 @@
-# /institutions/
 get:
   summary: List all institutions
   description: >-
@@ -7,14 +6,14 @@ get:
 
     #### Returns
 
-    JSON with keys for `data` and `links`.
+    Returns a JSON object containing `data` and `links` keys.
 
 
     The `data` key contains an array of 10 institutions.
     Each resource in the array is a separate institution object.
 
 
-    The `links` property contains JSON of links that can be used
+    The `links` key contains a dictionary of links that can be used
     for [pagination](#Introduction_pagination).
 
 

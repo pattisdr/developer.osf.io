@@ -12,11 +12,11 @@ get:
 
     #### Returns
 
-    Returns a dictionary with a `data` property containing the representation of the requested
+    Returns a JSON object with a `data` key containing the representation of the requested
     contributor, if the request is successful.
 
 
-    If the request is unsuccessful, a dictionary with an `errors` property containing
+    If the request is unsuccessful, an `errors` key containing
     information about the failure will be returned. Refer to the [list of error codes](#Introduction_error_codes)
     to understand why this request may have failed.
 
@@ -115,13 +115,12 @@ patch:
 
     #### Returns
 
-    Returns a dictionary with a `data` property containing the new representation of the updated
+    Returns a JSON object with a `data` key containing the new representation of the updated
     contributor, if the request is successful.
 
 
-    If the request is unsuccessful, a dictionary with an `errors` property containing
-    information about the failure will be returned. Refer to the [list of error codes](#Introduction_error_codes)
-    to understand why this request may have failed.
+    If the request is unsuccessful, an `errors` key containing information about the failure will be returned.
+    Refer to the [list of error codes](#Introduction_error_codes) to understand why this request may have failed.
 
 
     If the given user is not already in the contributor list, a 404 Not Found error will be returned.
@@ -171,9 +170,8 @@ delete:
     If the request is successful, no content is returned.
 
 
-    If the request is unsuccessful, a dictionary with an `errors` property containing
-    information about the failure will be returned. Refer to the [list of error codes](#Introduction_error_codes)
-    to understand why this request may have failed.
+    If the request is unsuccessful, a JSON object with an `errors` key containing information about the failure will be returned.
+    Refer to the [list of error codes](#Introduction_error_codes) to understand why this request may have failed.
 
   parameters:
     - in: path

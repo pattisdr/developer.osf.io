@@ -5,7 +5,7 @@ get:
 
     #### Returns
 
-    Returns JSON with a `data` key that contains the representation of the details
+    Returns a JSON object with a `data` key that contains the representation of the details
     necessary for the node citation.
 
   parameters:

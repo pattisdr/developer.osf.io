@@ -8,15 +8,18 @@ get:
 
     #### Returns
 
-    JSON with a `data` and `links` keys.
+    Returns a JSON object containing `data` and `links` keys.
 
 
-    The `data` property contains an array of 10 preprints.
+    The `data` key contains an array of 10 preprints.
     Each resource in the array is a separate preprint object.
-    The `links` property contains JSON with keys that can be used
+
+
+    The `links` key contains a dictionary with keys that can be used
     for [pagination](#Introduction_pagination).
 
-    If the request is unsuccessful, JSON with an `errors` key containing
+
+    If the request is unsuccessful, an `errors` key containing
     information about the failure will be returned. Refer to the [list of error codes](#Introduction_error_codes)
     to understand why this request may have failed.
 

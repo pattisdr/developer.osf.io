@@ -30,14 +30,14 @@ get:
 
     #### Returns
 
-    Returns JSON with a `data` and `links` property.
+    Returns a JSON object containing `data` and `links` keys.
 
 
-    The `data` property contains an array of 10 registrations.
+    The `data` key contains an array of 10 registrations.
     Each resource in the array is a separate registration object and contains the full representation of the registration, meaning additional requests to a registration's detail view are not necessary.
 
 
-    The `links` property contains a dictionary of links that can be used
+    The `links` key contains a dictionary of links that can be used
     for [pagination](#Introduction_pagination).
 
 

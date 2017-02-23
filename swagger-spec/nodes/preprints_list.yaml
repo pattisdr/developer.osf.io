@@ -10,13 +10,14 @@ get:
 
     #### Returns
 
-    A dictionary with a `data` and `links` property.
+    Returns a JSON object containing `data` and `links` keys.
 
 
-    The `data` property contains an array of up to 10 preprints.
+    The `data` key contains an array of up to 10 preprints.
     Each resource in the array is a separate preprint object.
-    The `links` property contains a dictionary of links that can be used
-    for [pagination](#Introduction_pagination).
+
+
+    The `links` key contains a dictionary of links that can be used for [pagination](#Introduction_pagination).
 
   parameters:
     - in: path
