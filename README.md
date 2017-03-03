@@ -1,5 +1,5 @@
 ### OSF API Documentation
-The openapi specification and source code for the documenting the Open Science Framework API lives here.
+The Open API specification and source code for the documenting the Open Science Framework API lives here.
 
 #### For development:
 - `npm install`
