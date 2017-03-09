@@ -146,9 +146,9 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
     });
 
     if (window.location.hash.length === 0 ) {
-      var n = $(this.el).find("#resources_nav [data-resource]").first();
-      n.trigger("click");
-      $(window).scrollTop(0)
+      var n = $(this.el).find('#resources_nav [data-resource]').first();
+      n.trigger('click');
+      $(window).scrollTop(0);
     }
 
     return this;
@@ -182,8 +182,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
   //       return i == 0 ? 'active' : ''
   //     },
   //     attributes: {
-  //       "data-resource": 'resource_' + resource.name,
-  //       "label": resource.name
+  //       'data-resource': 'resource_' + resource.name,
+  //       'label': resource.name
   //     },
   //     router: this.router,
   //     swaggerOptions: this.options.swaggerOptions
@@ -198,11 +198,11 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
       model: resource,
       tagName: 'div',
       className: function () {
-        return i == 0 ? 'active' : ''
+        return i === 0 ? 'active' : '';
       },
       attributes: {
-        "data-resource": 'resource_' + resource.name,
-        "label": resource.name
+        'data-resource': 'resource_' + resource.name,
+        'label': resource.name
       },
       router: this.router,
       swaggerOptions: this.options.swaggerOptions
@@ -215,15 +215,15 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
   },
 
   clickSidebarNav: function (e) {
-    $('.sticky-nav').toggleClass("nav-open")
+    $('.sticky-nav').toggleClass('nav-open');
   },
 
   clickResource: function (e) {
-    if (!$(e.target).is(".item")) {
-      var n = $(e.target).find(".item").first();
-      $('.sticky-nav').find("[data-resource].active").removeClass("active");
-      $(e.target).find("[data-resource]").first().addClass("active");
-      n.trigger("click")
+    if (!$(e.target).is('.item')) {
+      var n = $(e.target).find('.item').first();
+      $('.sticky-nav').find('[data-resource].active').removeClass('active');
+      $(e.target).find('[data-resource]').first().addClass('active');
+      n.trigger('click');
     }
   },
 
@@ -234,7 +234,7 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
         var top = window.pageYOffset;
         var distance = top - $(this).offset().top;
         var hash = $(this).attr('href');
-        if (distance < padding && distance > -padding && currentHash != hash) {
+        if (distance < padding && distance > -padding && currentHash !== hash) {
             window.location.hash = hash;
             currentHash = hash;
         }
@@ -243,30 +243,30 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
   }
 
   // toggleToken: function (e) {
-  //   var t = $(".token-generator"),
-  //     tg = $("[data-tg-switch]");
+  //   var t = $('.token-generator'),
+  //     tg = $('[data-tg-switch]');
 
-  //   t.toggleClass("hide");
-  //   t.hasClass("hide") ? tg.removeClass("active") : tg.addClass("active");
-  //   t.parents(".sticky-nav").trigger("mobile_nav:update")
+  //   t.toggleClass('hide');
+  //   t.hasClass('hide') ? tg.removeClass('active') : tg.addClass('active');
+  //   t.parents('.sticky-nav').trigger('mobile_nav:update')
   // },
 
   // closeToken: function (e) {
-  //   var t = $(".token-generator"),
-  //     tg = $("[data-tg-switch]");
+  //   var t = $('.token-generator'),
+  //     tg = $('[data-tg-switch]');
 
-  //   t.addClass("hide");
-  //   tg.removeClass("active");
-  //   t.parents(".sticky-nav").trigger("mobile_nav:update")
+  //   t.addClass('hide');
+  //   tg.removeClass('active');
+  //   t.parents('.sticky-nav').trigger('mobile_nav:update')
   // },
 
   // openToken: function (e) {
-  //   var t = $(".token-generator"),
-  //     tg = $("[data-tg-switch]");
+  //   var t = $('.token-generator'),
+  //     tg = $('[data-tg-switch]');
 
-  //   t.removeClass("hide");
-  //   tg.removeClass("active");
-  //   t.parents(".sticky-nav").trigger("mobile_nav:update")
+  //   t.removeClass('hide');
+  //   tg.removeClass('active');
+  //   t.parents('.sticky-nav').trigger('mobile_nav:update')
   // },
 
   // showCustom: function(e){

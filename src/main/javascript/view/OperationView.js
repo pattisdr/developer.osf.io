@@ -13,10 +13,10 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
   initialize: function (opts) {
     var api_topics = [
-      "Introduction", "General API Usage", "Versioning",
-      "Filtering", "Embedding", "Pagination",
-      "Create/Update Requests", "Attribute Validation", "Entities",
-      "Entity Collections", "Errors", "Enum Fields", "Actions"
+      'Introduction', 'General API Usage', 'Versioning',
+      'Filtering', 'Embedding', 'Pagination',
+      'Create/Update Requests', 'Attribute Validation', 'Entities',
+      'Entity Collections', 'Errors', 'Enum Fields', 'Actions'
     ];
 
     opts = opts || {};
@@ -25,8 +25,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
     this.model.encodedParentId = encodeURIComponent(this.parentId);
-    this.model.endpoint = api_topics.indexOf(this.model.summary) == -1 ? true : false;
-    this.model.read = this.model.method == 'get';
+    this.model.endpoint = api_topics.indexOf(this.model.summary) === -1 ? true : false;
+    this.model.read = this.model.method === 'get';
     this.schemaName = this.model.operation['x-response-schema'];
     return this;
   },
@@ -162,7 +162,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
             sampleJSON: JSON.stringify(value.createJSONSample(), void 0, 2),
             isParam: false,
             signature: value.getMockSignature(),
-            type: "Response",
+            type: 'Response',
             id: this.parentId + '_' + this.nickname + '_succes',
             schemaName: this.schemaName
           };
@@ -173,7 +173,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         sampleJSON: this.model.responseSampleJSON,
         isParam: false,
         signature: this.model.responseClassSignature,
-        type: "Response",
+        type: 'Response',
         id: this.parentId + '_' + this.nickname
       };
     }
@@ -191,7 +191,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       param = ref4[p];
       this.addParameter(param, contentTypeModel.consumes);
       if (param.paramType === 'body' || param.in === 'body') {
-        this.addBodyModel(param)
+        this.addBodyModel(param);
       }
     }
     if (signatureModel) {
@@ -199,7 +199,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
         model: signatureModel,
         router: this.router,
         tagName: 'div',
-        type: "Response",
+        type: 'Response',
         id: this.parentId + '_' + this.nickname + '_response'
       });
       $('.model-signature', $(this.el)).append(responseSignatureView.render().el);
@@ -247,13 +247,13 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   addBodyModel: function (param) {
-    if (param.type === 'file') return;
+    if (param.type === 'file') { return; }
 
     var bodySample = {
       sampleJSON: param.sampleJSON,
       isParam: true,
-      signature: this.model.method == 'put' || this.model.method == 'patch' ? '' : param.signature,
-      type: "Body",
+      signature: this.model.method === 'put' || this.model.method === 'patch' ? '' : param.signature,
+      type: 'Body',
       id: this.parentId + '_' + this.nickname + '_body',
       schemaName: this.schemaName
     };
@@ -277,7 +277,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       // This is the title that will be used by JsonEditor for the root
       // Since we already display the parameter's name in the Parameter column
       // We set this to space, we can't set it to null or space otherwise JsonEditor
-      // will replace it with the text "root" which won't look good on screen
+      // will replace it with the text 'root' which won't look good on screen
       if(!param.schema.title){
         param.schema.title = ' ';
       }
@@ -381,7 +381,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       }
       opts.responseContentType = $('div select[name=responseContentType]', $(this.el)).val();
       opts.requestContentType = $('div select[name=parameterContentType]', $(this.el)).val();
-      $(".submit", $(this.el)).button("loading");
+      $('.submit', $(this.el)).button('loading');
       if (isFileUpload) {
         return this.handleFileUpload(map, form);
       } else {
@@ -439,7 +439,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     var clientAuths = window.swaggerUi.api.clientAuthorizations;
     if (typeof clientAuths !== 'undefined' && typeof(clientAuths.authz) !== 'undefined') {
       _.forEach(clientAuths.authz, function(auth, key) {
-        if (auth.type == 'header') {
+        if (auth.type === 'header') {
           headerParams[auth.name] = auth.value;
         }
       });
@@ -727,7 +727,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     $('.response_throbber', $(this.el)).hide();
     var response_body_el = $('.response_body', $(this.el))[0];
 
-    $(".submit", $(this.el)).button("reset");
+    $('.submit', $(this.el)).button('reset');
 
     // only highlight the response if response is less than threshold, default state is highlight response
     var opts = this.options.swaggerOptions;
@@ -740,25 +740,25 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
   toggleSamples: function (e) {
     function o(t) {
-      if ("self" === t) {
+      if ('self' === t) {
         var n = $(window).scrollTop();
-        return $(window).scrollTop(n)
+        return $(window).scrollTop(n);
       }
-      return $(window).scrollTop(t)
+      return $(window).scrollTop(t);
     }
 
-    var r = $("#resources"),
+    var r = $('#resources'),
       n = $(e.currentTarget);
 
-    r.toggleClass("samples-collapsed").addClass("is-collapsing");
-    n.find('.text').text("Collapse samples");
-    r.hasClass("samples-collapsed") && n.find('.text').text("Show samples");
+    r.toggleClass('samples-collapsed').addClass('is-collapsing');
+    n.find('.text').text('Collapse samples');
+    r.hasClass('samples-collapsed') && n.find('.text').text('Show samples');
 
     setTimeout(function () {
-      var t = n.parents(".endpoint").first().offset().top;
-      r.removeClass("is-collapsing");
-      o(t)
-    }, 500)
+      var t = n.parents('.endpoint').first().offset().top;
+      r.removeClass('is-collapsing');
+      o(t);
+    }, 500);
   }
 
 });

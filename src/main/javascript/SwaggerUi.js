@@ -62,13 +62,13 @@ window.SwaggerUi = Backbone.Router.extend({
     });
     */
     //JSon Editor custom theming
-    JSONEditor.defaults.iconlibs.swagger = JSONEditor.AbstractIconLib.extend({
-      mapping: {
-        collapse: 'collapse',
-        expand: 'expand'
-      },
-      icon_prefix: 'swagger-'
-    });
+    // JSONEditor.defaults.iconlibs.swagger = JSONEditor.AbstractIconLib.extend({
+    //   mapping: {
+    //     collapse: 'collapse',
+    //     expand: 'expand'
+    //   },
+    //   icon_prefix: 'swagger-'
+    // });
   },
 
   // Set an option after initializing
