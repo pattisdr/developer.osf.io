@@ -26,7 +26,7 @@ get:
 
 
     This request should never return an error.
-
+    
     #### Filtering
 
     You can optionally request that the response only include nodes that match your filters by utilizing the `filter` query parameter, e.g.
