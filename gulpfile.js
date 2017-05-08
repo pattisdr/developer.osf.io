@@ -113,7 +113,7 @@ gulp.task('copy', ['less'], function() {
 });
 
 gulp.task('bundle', ['clean', 'copy', 'validate'], function() {
-  return run('swagger bundle -r -o ./dist/swagger.json swagger-spec/swagger.yaml').exec()
+  return run('swagger bundle -r -o ./dist/swagger.json swagger-spec/swagger.yaml').exec();
 });
 
 gulp.task('validate', function() {
@@ -126,7 +126,7 @@ gulp.task('validate', function() {
  * Watch for changes and recompile
  */
 gulp.task('watch', function() {
-  return watch(['./src/**/*.{js,less,handlebars}'], function() {
+  return watch(['./src/**/*.{js,less,handlebars}', './swagger-spec/**/*.yaml'], function() {
     gulp.start('default');
   });
 });

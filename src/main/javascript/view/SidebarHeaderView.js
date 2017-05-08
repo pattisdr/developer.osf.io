@@ -29,7 +29,7 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
       tagName: 'div',
       className : 'item',
       attributes: {
-          "data-endpoint": item.parentId + '_' + item.nickname
+          'data-endpoint': item.parentId + '_' + item.nickname
       },
       router: this.router,
       swaggerOptions: this.options.swaggerOptions
@@ -40,51 +40,52 @@ SwaggerUi.Views.SidebarHeaderView = Backbone.View.extend({
   clickSidebarItem: function (e) {
 
     var elem = $(e.target);
-    var eln = $("#" + elem.attr("data-endpoint"));
+    var eln = $('#' + elem.attr('data-endpoint'));
 
-    if (elem.is(".item")) {
-      scroll(elem.attr("data-endpoint"));
+    if (elem.is('.item')) {
+      scroll(elem.attr('data-endpoint'));
       setSelected(elem);
-      updateUrl(eln.find(".path a").first().attr("href"))
+      updateUrl(eln.find('.path a').first().attr('href'));
     }
 
     /* scroll */
+    /* jshint ignore:start */
     function scroll(elem) {
-      var i = $(".sticky-nav").outerHeight();
-      var r = $("#" + elem).offset().top - i - 10;
-      matchMedia() && (r = $("#" + elem).offset().top - 10);
+      var i = $('.sticky-nav').outerHeight();
+      var r = $('#' + elem).offset().top - i - 10;
+      matchMedia() && (r = $('#' + elem).offset().top - 10);
       scrollT(r);
     }
+    /* jshint ignore:end */
 
     /* set selected value and select operation (class) */
     function setSelected(element) {
-      {
-        var nav = $(".sticky-nav [data-navigator]");
-        $("#" + element.attr("data-endpoint"))
-      }
-      nav.find("[data-resource]").removeClass("active");
-      nav.find("[data-selected]").removeAttr("data-selected");
-      element.closest("[data-resource]").addClass("active");
-      element.attr("data-selected", "");
-      $(".sticky-nav").find("[data-selected-value]").html(element.text())
+      var nav = $('.sticky-nav [data-navigator]');
+      $('#' + element.attr('data-endpoint'));
+      nav.find('[data-resource]').removeClass('active');
+      nav.find('[data-selected]').removeAttr('data-selected');
+      element.closest('[data-resource]').addClass('active');
+      element.attr('data-selected', '');
+      $('.sticky-nav').find('[data-selected-value]').html(element.text());
     }
+
 
     /* update navigation */
     function updateUrl(element) {
-      history.pushState && history.pushState(null, null, element)
+      history.pushState && history.pushState(null, null, element);
     }
 
     function matchMedia() {
-      return window.matchMedia("(min-width: 992px)").matches
+      return window.matchMedia('(min-width: 992px)').matches;
     }
 
     function scrollT(e) {
-      if ("self" === e) {
+      if ('self' === e) {
         var n = $(window).scrollTop();
-        return $(window).scrollTop(n)
+        return $(window).scrollTop(n);
       }
 
-      return $(window).scrollTop(e)
+      return $(window).scrollTop(e);
     }
   }
 

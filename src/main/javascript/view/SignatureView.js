@@ -19,10 +19,6 @@ SwaggerUi.Views.SignatureView = Backbone.View.extend({
   // handler for snippet to text area
   snippetToTextArea: function (e) {
     if (this.isParam) {
-      if (e) {
-        e.preventDefault();
-      }
-
       var textArea = $('textarea', $(this.el.parentNode.parentNode.parentNode));
       if ($.trim(textArea.val()) === '') {
         textArea.val(this.model.sampleJSON);
@@ -39,9 +35,9 @@ SwaggerUi.Views.SignatureView = Backbone.View.extend({
     var iconId = e.currentTarget.attributes['data-toggle'].ownerElement.children[0];
 
     if ($(iconId).hasClass('glyphicon-menu-right')) {
-      $(iconId).removeClass("glyphicon-menu-right").addClass("glyphicon-menu-down");
+      $(iconId).removeClass('glyphicon-menu-right').addClass('glyphicon-menu-down');
     } else {
-      $(iconId).removeClass("glyphicon-menu-down").addClass("glyphicon glyphicon-menu-right");
+      $(iconId).removeClass('glyphicon-menu-down').addClass('glyphicon glyphicon-menu-right');
     }
   }
 });

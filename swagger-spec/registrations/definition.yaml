@@ -65,6 +65,11 @@ properties:
         format: date-time
         readOnly: true
         description: 'The time at which this registration was created, as an iso8601 formatted timestamp.'
+      date_withdrawn:
+        type: string
+        format: date-time
+        readOnly: true
+        description: 'The time at which this registration was withdrawn, as an iso8601 formatted timestamp.'
       description:
         type: string
         readOnly: true
@@ -229,7 +234,8 @@ properties:
 
 example:
   data:
-    id: '{registration_id}'
-    type: 'registrations'
+    type: registrations
     attributes:
-      public: true
+      draft_registration: '{draft_registration_id}'
+      registration_choice: embargo
+      lift_embargo: '2017-05-10T20:44:03.185000'

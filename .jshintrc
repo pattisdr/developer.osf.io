@@ -13,11 +13,18 @@
   "quotmark": "single",
   "regexp": true,
   "undef": true,
-  "unused": true,
+  "unused": false,
   "strict": true,
   "trailing": true,
   "smarttabs": true,
   "validthis": true,
+  "boss": true,
+  "eqnull": true,
+  "expr": true,
+  "immed": true,
+  "onevar": false,
+  "smarttabs": true,
+  "loopfunc": true,
   "globals": {
 
     // Libraries

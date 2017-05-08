@@ -3,26 +3,24 @@
  * [TODO] defaultProperties is not take in the required properties into consideration, this implementation respects the specs of JSON Editor v0.7.22
   {
    {
-     "type": "object",
-     "properties": {
-     "name": {"type": "string"},
-     "age": {"type": "integer"}
+     'type': 'object',
+     'properties': {
+     'name': {'type': 'string'},
+     'age': {'type': 'integer'}
    },
-   defaultProperties": ["name"]
+   defaultProperties': ['name']
   }
  */
 function setDefaultProperties(obj) {
   if (obj instanceof Object) {
     for (var k in obj){
-      if(obj.hasOwnProperty("type") && obj.type == "object") {
+      if(obj.hasOwnProperty('type') && obj.type === 'object') {
         obj.defaultProperties = obj.required ? obj.required : [];
       }
       // recursive call to setDefaultProperties
       setDefaultProperties( obj[k] );
     }
-  } else {
-    // not an Object, break the recursion.
-  };
+  }
 }
 
 SwaggerUi.Views.ParameterView = Backbone.View.extend({
@@ -56,7 +54,7 @@ SwaggerUi.Views.ParameterView = Backbone.View.extend({
     this.model.isBody = this.model.paramType === 'body' || this.model.in === 'body';
     this.model.isFile = type && type.toLowerCase() === 'file';
     this.model.default = (this.model.default || this.model.defaultValue);
-    this.model.isVersion = true ? this.model.name == 'version' : false;
+    this.model.isVersion = true ? this.model.name === 'version' : false;
 
     if(this.model.format === 'password') {
         this.model.inputType = 'password';
@@ -83,7 +81,7 @@ SwaggerUi.Views.ParameterView = Backbone.View.extend({
     if( this.options.swaggerOptions.jsonEditor && this.model.isBody && this.model.schema){
       var jsonEditorOptions = this.options.swaggerOptions.jsonEditorOptions;
       var $self = $(this.el);
-      if (jsonEditorOptions && jsonEditorOptions.noDefaultProperties) setDefaultProperties(this.model.schema);
+      if (jsonEditorOptions && jsonEditorOptions.noDefaultProperties) { setDefaultProperties(this.model.schema); }
       this.model.jsonEditor =
         /* global JSONEditor */
           new JSONEditor($('.editor_holder', $self)[0],
@@ -94,7 +92,7 @@ SwaggerUi.Views.ParameterView = Backbone.View.extend({
                 remove_empty_properties:jsonEditorOptions && jsonEditorOptions.removeEmptyProperties,
                 iconlib: 'swagger' });
       // This is so that the signature can send back the sample to the json editor
-      // TODO: SignatureView should expose an event "onSampleClicked" instead
+      // TODO: SignatureView should expose an event 'onSampleClicked' instead
       signatureModel.jsonEditor = this.model.jsonEditor;
       $('.body-textarea', $self).hide();
       $('.editor_holder', $self).show();
