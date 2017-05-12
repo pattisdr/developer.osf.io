@@ -127,12 +127,12 @@ gulp.task('cachebust', ['dist', 'bundle'], function() {
   gulp
     .src('./dist/**/*.{css,html,less,handlebars}')
     .pipe(cachebust({type:'timestamp'}))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 
   gulp
     .src('./dist/swagger.json')
     .pipe(bust())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 });
 
 /**
