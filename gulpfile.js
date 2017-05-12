@@ -2,6 +2,8 @@
 
 var gulp = require('gulp');
 var es = require('event-stream');
+var cachebust = require('gulp-cache-bust');
+var bust = require('gulp-buster');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -121,6 +123,17 @@ gulp.task('validate', function() {
   .on('error', log);
 });
 
+gulp.task('cachebust', ['dist', 'bundle'], function() {
+  gulp
+    .src('./dist/**/*.{css,html,less,handlebars}')
+    .pipe(cachebust({type:'timestamp'}))
+    .pipe(gulp.dest('./dist'))
+
+  gulp
+    .src('./dist/swagger.json')
+    .pipe(bust())
+    .pipe(gulp.dest('./dist'))
+});
 
 /**
  * Watch for changes and recompile
@@ -147,5 +160,5 @@ function log(error) {
 }
 
 
-gulp.task('default', ['dist', 'copy', 'bundle']);
+gulp.task('default', ['cachebust', 'dist', 'copy', 'bundle']);
 gulp.task('serve', ['connect', 'watch']);
