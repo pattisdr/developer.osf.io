@@ -1,7 +1,7 @@
 get:
   summary: Pagination
   description: >-
-    All entity collection endpoints respond to the `page` query parameter behavior as described in the [JSON-API pagination spec](http://jsonapi.org/format/1.0/#crud).
+    All entity collection endpoints respond to the `page` query parameter as described in the [JSON-API spec](http://jsonapi.org/format/#fetching-pagination).
 
 
     However, links to the first, last, previous, and next pages of results are provided in the `links` key of the response,

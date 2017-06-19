@@ -60,6 +60,9 @@ paths:
   /pagination/:
     $ref: 'introduction/pagination.yaml'
 
+  /sparse_fieldsets/:
+    $ref: 'introduction/sparse_fieldsets.yaml'
+
   /versioning/:
     $ref: 'introduction/versioning.yaml'
 
