@@ -76,6 +76,9 @@ get:
     The user has sent too many requests in a given amount of time.
 
 
+    Some actions are more limited than others, but in general, send [authenticated](#Introduction_authentication) requests for a much higher rate limit.
+
+
     `5xx` **Server Errors**
 
 
