@@ -40,7 +40,7 @@ properties:
         items:
           type: string
         readOnly: true
-        description: 'An array of links to to this taxonomy''s parents'
+        description: 'An array of links to to this taxonomy''s parents. This field is deprecated as of verson 2.4.'
       self:
         type: string
         format: URL

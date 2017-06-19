@@ -8,6 +8,10 @@ get:
 
     The subroute `/users/me/` is a special endpoint that always points to the currently logged-in user.
 
+    #### Versioning
+
+    As of version `2.3`, merged users will not be returned from this endpoint.
+
     #### Returns
 
     Returns a JSON object containing `data` and `links` keys.
