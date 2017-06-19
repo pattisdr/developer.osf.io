@@ -76,7 +76,13 @@ get:
     The user has sent too many requests in a given amount of time.
 
 
-    Some actions are more limited than others, but in general, send [authenticated](#Introduction_authentication) requests for a much higher rate limit.
+    Wait at least the amount of time specified in the `Retry-After` header of the response before sending another request.
+
+
+    [Authenticated](#Introduction_authentication) requests have a rate limit of 10,000/day.
+
+
+    Unauthenticated requests have a rate limit of 100/hour.
 
 
     `5xx` **Server Errors**
