@@ -63,6 +63,9 @@ paths:
   /pagination/:
     $ref: 'introduction/pagination.yaml'
 
+  /testing/:
+    $ref: 'introduction/testing.yaml'
+
   /versioning/:
     $ref: 'introduction/versioning.yaml'
 

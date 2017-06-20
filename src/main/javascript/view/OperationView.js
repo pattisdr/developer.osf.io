@@ -16,7 +16,8 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       'Introduction', 'General Usage', 'Actions',
       'Attribute Validation', 'Authentication', 'Create/Update Requests',
       'Embedding', 'Entities', 'Entity Collections', 'Enum Fields',
-      'Errors', 'Error Codes', 'Filtering', 'Pagination', 'Versioning'
+      'Errors', 'Error Codes', 'Filtering', 'Pagination', 'Testing',
+      'Versioning'
     ];
 
     opts = opts || {};
