@@ -30,26 +30,26 @@ paths:
   /general_api_usage/:
     $ref: 'introduction/general_api_usage.yaml'
 
+  /attribute_validation/:
+    $ref: 'introduction/attribute_validation.yaml'
+
+  /authentication/:
+    $ref: 'introduction/authentication.yaml'
+
+  /create_update_requests/:
+    $ref: 'introduction/create_update_requests.yaml'
+
+  /embedding/:
+    $ref: 'introduction/embedding.yaml'
+
   /entities/:
     $ref: 'introduction/entities.yaml'
 
   /entity_collections/:
     $ref: 'introduction/entity_collections.yaml'
 
-  /osf_enum_fields/:
-    $ref: 'introduction/osf_enum_fields.yaml'
-
-  /filtering/:
-    $ref: 'introduction/filtering.yaml'
-
-  /embedding/:
-    $ref: 'introduction/embedding.yaml'
-
-  /put_patch_requests/:
-    $ref: 'introduction/put_patch_requests.yaml'
-
-  /attribute_validation/:
-    $ref: 'introduction/attribute_validation.yaml'
+  /enum_fields/:
+    $ref: 'introduction/enum_fields.yaml'
 
   /errors/:
     $ref: 'introduction/errors.yaml'
@@ -57,11 +57,17 @@ paths:
   /error_codes/:
     $ref: 'introduction/error_codes.yaml'
 
+  /filtering/:
+    $ref: 'introduction/filtering.yaml'
+
   /pagination/:
     $ref: 'introduction/pagination.yaml'
 
   /sparse_fieldsets/:
     $ref: 'introduction/sparse_fieldsets.yaml'
+
+  /testing/:
+    $ref: 'introduction/testing.yaml'
 
   /versioning/:
     $ref: 'introduction/versioning.yaml'

@@ -46,7 +46,7 @@ properties:
           anonymous_link:
             type: boolean
             readOnly: true
-            description: 'The link added to the node was anonymous.'
+            description: 'The view only link added to the node was anonymous.'
           bucket:
             type: string
             readOnly: true

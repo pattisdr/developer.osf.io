@@ -3,6 +3,10 @@ get:
   description: >-
     A paginated list of all nodes affiliated with an institution.
 
+    #### Versioning
+
+    As of version `2.2`, affiliated components (in addition to affiliated top-level projects) are returned from this endpoint.
+
     #### Returns
 
     Returns a JSON object containing `data` and `links` keys.
