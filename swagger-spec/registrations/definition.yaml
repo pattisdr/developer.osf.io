@@ -187,6 +187,10 @@ properties:
         type: string
         readOnly: true
         description: 'A link to the list of nodes that are linked to this registration.'
+      node_links:
+        type: string
+        readOnly: true
+        description: 'A link to the list of nodes that are linked to this registration. This field is deprecated as of verson 2.1; use the linked_nodes link instead.'
       parent:
         type: string
         readOnly: true
