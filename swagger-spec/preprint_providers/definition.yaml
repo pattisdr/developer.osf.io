@@ -18,7 +18,7 @@ properties:
       social_instagram:
         type: string
         readOnly: true
-        description: 'The preprint provider''s Instagram account ID.'
+        description: 'The preprint provider''s Instagram account ID. This field is deprecated as of verson 2.4.'
       advisory_board:
         type: string
         readOnly: true
@@ -30,11 +30,11 @@ properties:
       banner_path:
         type: string
         readOnly: true
-        description: 'A static path to the preprint provider''s banner image.'
+        description: 'A static path to the preprint provider''s banner image. This field is deprecated as of verson 2.4.'
       logo_path:
         type: string
         readOnly: true
-        description: 'A static path to the preprint provider''s logo image.'
+        description: 'A static path to the preprint provider''s logo image. This field is deprecated as of verson 2.4.'
       subjects_acceptable:
         type: string
         readOnly: true
@@ -46,11 +46,11 @@ properties:
       social_facebook:
         type: string
         readOnly: true
-        description: 'The preprint provider''s Facebook account ID.'
+        description: 'The preprint provider''s Facebook account ID. This field is deprecated as of verson 2.4.'
       email_contact:
         type: string
         readOnly: true
-        description: 'The preprint provider''s contact email address.'
+        description: 'The preprint provider''s contact email address. This field is deprecated as of verson 2.4.'
       example:
         type: string
         readOnly: true

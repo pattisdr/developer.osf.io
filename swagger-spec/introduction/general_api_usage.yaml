@@ -1,5 +1,5 @@
 get:
-  summary: General API Usage
+  summary: General Usage
   description: >-
     The OSF API generally conforms to the [JSON-API v1.0 spec](http://jsonapi.org/format/1.0/).
     Where exceptions exist, they will be noted.
