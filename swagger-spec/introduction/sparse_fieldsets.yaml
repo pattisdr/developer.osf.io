@@ -1,7 +1,16 @@
 get:
   summary: Sparse Fieldsets
-  description: >-
+  description: |
     All endpoints respond to the `fields` query parameter as described in the [JSON-API spec](http://jsonapi.org/format/#fetching-sparse-fieldsets).
+
+
+    From the specification:
+
+    <blockquote>
+      <p>A client MAY request that an endpoint return only specific fields in the response on a per-type basis by including a fields[TYPE] parameter.</p>
+      <p>The value of the fields parameter MUST be a comma-separated (U+002C COMMA, “,”) list that refers to the name(s) of the fields to be returned.</p>
+      <p>If a client requests a restricted set of fields for a given resource type, an endpoint MUST NOT include additional fields in resource objects of that type in its response.</p>
+    </blockquote>
 
     #### Basic Usage
 
@@ -28,7 +37,8 @@ get:
     https://api.osf.io/v2/nodes/?fields[nodes]=title,contributors&embed=contributors&fields[users]=full_name
 
 
-    When using sparse fieldsets and embeds in the same request, fields that are being embedded must also be included in `fields[type]`, or the embed will be invalid.
+    Any field specified in another query parameters used by the serializer (e.g. `embed`) must also be included in the sparse fieldset.
+    For example, fields that are being embedded on the sparse type (e.g. `nodes`) must also be included in `fields[<type>]` when using embeds, or the embed will be invalid.
 
 
     A request to embed contributors and restrict nodes to only return the `title` attribute should have the form:
