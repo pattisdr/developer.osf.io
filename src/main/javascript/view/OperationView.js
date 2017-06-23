@@ -13,10 +13,11 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
   initialize: function (opts) {
     var api_topics = [
-      'Introduction', 'General API Usage', 'Versioning',
-      'Filtering', 'Embedding', 'Pagination',
-      'Create/Update Requests', 'Attribute Validation', 'Entities',
-      'Entity Collections', 'Errors', 'Enum Fields', 'Actions'
+      'Introduction', 'General Usage', 'Actions',
+      'Attribute Validation', 'Authentication', 'Create/Update Requests',
+      'Embedding', 'Entities', 'Entity Collections', 'Enum Fields',
+      'Errors', 'Error Codes', 'Filtering', 'Pagination', 'Testing',
+      'Sparse Fieldsets', 'Versioning'
     ];
 
     opts = opts || {};
