@@ -29,7 +29,7 @@ get:
     https://api.osf.io/v2/preprint_providers/?filter[id]=osf.
 
 
-    Preprint Providers may be filtered by their `id`, `name`,  and `description`
+    Preprint Providers may be filtered by their `id`, `name`, `description`, `domain`, `domain_redirect_enabled`, `share_publish_type`, and `allow_submissions`
 
   tags:
     - Preprint Providers
