@@ -453,3 +453,12 @@ paths:
 
   /wikis/{wiki_id}/content/:
     $ref: 'wikis/content.yaml'
+
+  /wikis/{wiki_id}/versions/:
+    $ref: 'wikis/versions_list.yaml'
+
+  /wikis/{wiki_id}/versions/{version_id}/:
+    $ref: 'wikis/version_detail.yaml'
+
+  /wikis/{wiki_id}/versions/{version_id}/content/:
+    $ref: 'wikis/version_content.yaml'

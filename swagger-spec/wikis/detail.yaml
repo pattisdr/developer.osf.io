@@ -45,6 +45,11 @@ get:
                   related:
                     href: 'https://api.osf.io/v2/users/5k3hq/'
                     meta: {}
+              versions:
+                links:
+                  related:
+                    href: 'https://api.osf.io/v2/wikis/zveyb/versions/'
+                    meta: {}
               comments:
                 links:
                   related:
